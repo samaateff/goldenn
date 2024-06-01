@@ -17,6 +17,11 @@ img {
   margin-bottom: 35px;
   font-weight: 700;
   color: #2C1D65;
+  font-family: 'Tajawal', sans-serif;
+}
+.packagesInfo  h3,
+.packages .cardText .btn{
+  font-family: 'Tajawal', sans-serif;
 }
 .back a {
   font-family: "Cairo";
