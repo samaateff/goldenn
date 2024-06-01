@@ -1,0 +1,128 @@
+.carousel-item { 
+     float: inline-start; 
+ margin-right: 0px !important;
+ margin-bottom: 20px;
+}
+.carousel-control-prev{
+    right: unset !important;
+    width: 3%;
+    bottom: 20px;
+}
+.carousel-control-next{
+    width: 3%;
+    bottom: 20px;
+
+}
+.carousel-item img{
+    height: auto;
+    width: 100%;
+}
+
+.carousel-indicators {
+    bottom: -10px;
+}
+#content.complete-reservation section.complete-reservation .real-state-info .info .text h2 {
+    font-size: 20px;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+.reservation-data p{
+    color: black;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.carousel-inner {
+    position: relative;
+    width: 104%;
+    overflow: hidden;
+    margin-right: -15px;
+}
+
+
+
+
+@media screen and (max-width:1024px){
+    
+    .carousel-control-prev{
+        right: unset !important;
+        width: 3%;
+        height: 160px;
+    }
+    .carousel-control-next{
+        width: 3%;
+        height: 160px;
+    }
+    .carousel-inner {
+        position: relative;
+        width: 106%;
+        overflow: hidden;
+        margin-right: -15px;
+    }
+
+}
+
+
+@media screen and (max-width:992px){
+    
+}
+
+@media screen and (max-width:768px){
+    .carousel-control-prev{
+        right: unset !important;
+        width: 3%;
+        height: 120px;
+    }
+    .carousel-control-next{
+        width: 3%;
+        height: 120px;
+    }
+    .carousel-indicators {
+        display: none;
+     }
+     .carousel-inner {
+        position: relative;
+        width: 108%;
+        overflow: hidden;
+        margin-right: -15px;
+    }
+}
+
+@media screen and (max-width:600px){
+    .carousel-control-prev{
+        display: none;
+    }
+    .carousel-control-next{
+        display: none;
+    
+    }
+    .carousel-item img{
+        height: 100%;
+        width: 100%;
+    }
+    .carousel-indicators {
+       display: none;
+    }
+    .carousel-control-prev{
+        right: unset !important;
+        width: 10%;
+        height: 110px;
+    }
+    .carousel-control-next{
+        width: 10%;
+    }
+    .carousel-indicators {
+        display: none;
+     }
+     .reservation-data p{
+        color: black;
+        font-size: 13px;
+        font-weight: 700;
+    }
+    .carousel-inner {
+        position: relative;
+        width: 101%;
+        overflow: hidden;
+        margin-right: 0px;
+    }
+}

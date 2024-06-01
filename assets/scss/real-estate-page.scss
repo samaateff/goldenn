@@ -1,0 +1,568 @@
+// import global style from style.css
+@use "style";
+
+// import varibles & mixins
+@use "includes/varibles.scss" as *;
+@use "includes/mixins" as *;
+
+
+/*********************************************************************
+************************ Style About Us page  ************************
+*********************************************************************/
+
+#content.real-estate-page {
+    padding-bottom: $main-space;
+
+    @media(max-width: 991px) {
+        padding-bottom: 40px;
+    }
+}
+
+#content.real-estate-page h2.section-heading {
+    font-size: 21px;
+    line-height: 39px;
+
+    & + p {
+        font-size: 14px;
+        line-height: 26px;
+    }
+}
+
+/*********************** Start style real-estate-gallery **************************/
+
+#content.real-estate-page section.real-estate-gallery {
+    margin: 16px 0 24px;
+
+    .box {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, auto);
+        gap: 16px;
+
+        @media(max-width: 575px) {
+            gap: 8px;
+        }
+    }
+
+    .image {
+        border-radius: 12px;
+
+        @media(max-width: 767px) {
+            border-radius: 8px;
+        }
+
+        @media(max-width: 575px) {
+            border-radius: 6px;
+        }
+
+        img {
+            aspect-ratio: 1.8;
+            width: 100%;
+            height: 100%;
+            max-height: 180px;
+            object-fit: cover;
+            border-radius: inherit;
+        }
+
+        &.main-image {
+            grid-area: 1 / 1 / 4 / 4;
+
+            img {
+                max-height: 572px;
+            }
+        }
+
+        &:last-child {
+            position: relative;
+            cursor: pointer;
+
+            &::before {
+                content: "";
+                border-radius: inherit;
+                @include overlay(rgba(16, 16, 16, 0.45));
+                transition: $main-transition;
+            }
+
+            &:hover::before {
+                background-color: rgba(16, 16, 16, 0.3);
+            }
+
+            &::after {
+                content: " \f03e  عرض جميع الصور";
+                @include font-color(14px, 600, 21px, white);
+                font-family: "Font Awesome 6 Free";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+
+                @media(max-width: 575px) {
+                    content: "\f03e";
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+}
+
+/*********************** End style real-estate-gallery ***************************/
+
+/*********************** Start style real-estate-info **************************/
+
+#content.real-estate-page section.real-estate-info {
+    margin: 24px 0 40px;
+
+    .box {
+        display: grid;
+        grid-template-columns: 1fr 350px;
+        gap: 72px;
+        align-items: flex-start;
+
+
+        @media(max-width: 991px) {
+            grid-template-columns: 1fr 280px;
+            gap: 40px;
+        }
+
+        @media(max-width: 767px) {
+            grid-template-columns: 100%;
+            gap: 48px;
+        }
+    }
+
+    .content {
+        position: relative;
+
+        h1 {
+            font-weight: 600;
+        }
+
+        .favorite-icon {
+            cursor: pointer;
+            @include flex(6px);
+            @include font-color(14px, 400, 26px, $text-color);
+            position: absolute;
+            top: 10px;
+            left: 15px;
+
+            svg {
+                font-size: 20px;
+            }
+
+            &.active svg {
+                color: $second-color
+            }
+
+            span {
+                @media(max-width: 991px) {
+                    display: none;
+                }
+            }
+        }
+
+        .location {
+            @include flex(12px);
+            @include font-color(16px, 400, 30x, $text-color);
+            margin-bottom: 24px;
+
+            svg {
+                font-size: 20px;
+                color: $main-color
+            }
+        }
+
+        .golden-guarantee  {
+            @include flex(4px);
+            margin: 24px 0;
+
+            .image img {
+                height: 40px;
+            }
+
+            h4 {
+                @include flex(6px);
+                @include font-color(14px, 600, 21px, $main-color);
+                margin-bottom: 3px;
+
+                .icon {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    background-color: #D6D6D6;
+                    color: white;
+                    font-size: 15px;
+                    @include center
+                }
+            }
+
+            p {
+                @include font-color(10px, 400, 12px, $black-color);
+            }
+        }
+
+
+        .features {
+            margin: 24px 0 32px;
+
+            .features-box {
+                @include flex(24px);
+                flex-wrap: wrap;
+
+                @media(max-width: 575px) {
+                    gap: 16px;
+                }
+            }
+
+            .feature {
+                width: calc((100% - 32px) / 2);
+                @include flex(10px);
+
+                svg {
+                    font-size: 20px;
+                    color: $second-color;
+
+                    @media(max-width: 575px) {
+                        font-size: 16px;
+                    }
+                }
+
+                h4 {
+                    @include font-color(16px, 400, 30px, $black-color);
+
+                    @media(max-width: 575px) {
+                        font-size: 14px;
+                    }
+                }
+            }
+        } 
+    }
+
+    aside {
+
+        > article {
+            border: 1px solid #D6D6D6;
+            border-radius: 24px;
+            padding: 16px;
+            margin-bottom: 20px;
+        }
+
+        .booking {
+
+            p {
+                @include font-color(14px, 400, 26px, $black-color);
+                margin-bottom: 20px
+            }
+
+            .cost {
+                @include flex(4px);
+                margin-bottom: 8px;
+
+                .number {
+                    @include font-color(26px, 600, 39px, $main-color)
+                }
+    
+                .currency {
+                    @include font-color(12px, 400, 23px, $main-color)
+                }
+            }
+
+            .input-button {
+                width: 100%;
+                border: 1px solid #D6D6D6;
+                border-radius: 8px;
+                padding: 14PX;
+                @include flex(8px);
+                @include font-color(14px, 600, 26px, $black-color);
+                margin-bottom: 20px;
+    
+                svg {
+                    font-size: 20px;
+                    color: $text-color;
+                }
+            }
+
+            .total-amount {
+                @include flex(8px);
+                margin: 24px 0;
+
+                h3 {
+                    @include font-color(14px, 600, 26px, $text-color);
+                }
+
+                .cost {
+                    margin-bottom: 0;
+
+                    .number {
+                        font-size: 17px;
+                        line-height: 32px;
+                    }
+        
+                    .currency {
+                        font-size: 10px;
+                        line-height: 19px;
+                        color: $text-color
+                    }
+                }
+            }
+        }
+
+        .the-host {
+            .the-host-info {
+                @include flex(8px);
+                margin-bottom: 12px;
+
+                .image img {
+                    width: 64px;
+                    height: 64px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    object-position: top;
+                    max-width: 100%;
+                }
+
+                .text {
+                    h4 {
+                        @include font-color(14px, 600, 17px, $black-color);
+                        margin-bottom: 4px;
+                    }
+
+                    p {
+                        @include font-color(12px, 400, 17px, $text-color);
+                    }
+
+                    .rate {
+                        @include font-color(16px, 600, 30px, $black-color);
+
+                        svg {
+                            color: #FBBB13;
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+
+
+    }
+}
+
+/*********************** End style real-estate-info ***************************/
+
+/*********************** Start style real-estate-reviews **************************/
+
+#content.real-estate-page section.real-estate-reviews {
+    margin: 40px 0 32px;
+
+    header {
+        @include flex(16px);
+        justify-content: space-between;
+        margin-bottom: 16px;
+
+        @media(max-width: 575px) {
+            flex-direction: column;
+        }
+
+        > section {
+            @include flex(32px);
+        }
+
+        .star {
+            @include font-color(16px, 600, 30px, $black-color);
+
+            svg {
+                color: #D70060;
+                font-size: 16px;
+            }
+        }
+
+        .rate {
+            @include font-color(14px, 500, 26px, $text-color);
+        }
+
+        .reviews-control {
+            @include flex(12px);
+
+            .next,
+            .prev {
+                width: 40px;
+                height: 40px;
+                border: 1px solid #ECECEC;
+                border-radius: 50%;
+                font-size: 16px;
+                @include center;
+                color: $black-color
+            }
+        }
+
+        .all-reviews {
+            .main-button {
+                @include font-color(12px, 400, 22px, $main-color);
+                background-color: transparent;
+                border: 1px solid #2C1D65;
+                border-radius: 20px;
+                padding: 8px 20px;
+
+                // @media(max-width: 1199px) {
+                //     padding: 6px 16px;
+                //     font-size: 14px;
+                // }
+
+                &:hover {
+                    background-color: $main-color;
+                    color: white;
+                }
+            }
+        }
+
+    }
+
+    .reviews-box {
+        
+        .reviews-container {
+            position: relative;
+        
+            .reviews-slider {
+                width: fit-content;
+                display: flex;
+                gap: 20px;
+                position: relative;
+                top: 0;
+                left: 0;
+            }
+        }
+    }
+
+    .review {
+        width: 340px;
+        border: 1px solid #D6D6D6;
+        border-radius: 16px;
+        padding: 24px 16px;
+        direction: rtl;
+
+        h3 {
+            @include font-color(14px, 600, 26px, $black-color);
+            margin-bottom: 8px;
+        }
+
+        p {
+            @include font-color(11px, 400, 20px, $text-color);
+        }
+
+        .rate-review  {
+            @include flex(10px);
+            margin-bottom: 12px;
+        }
+
+        .rate {
+            @include flex(4px);
+
+            svg {
+                font-size: 12px;
+                color: #D6D6D6;
+
+                &.active {
+                    color: $second-color
+                }
+            }
+        }
+
+        p.date {
+            @include font-color(10px, 400, 19x, $text-color);
+        }
+    }
+
+    .main-popup {
+
+        .modal-dialog {
+            width: 460px;
+        }
+
+        .modal-content {
+            padding: 24px 32px;
+        }
+
+        .modal-header {
+            @media(max-width: 575px) {
+                align-items: flex-start;
+            }
+
+            .box {
+                @include flex(16px);
+                justify-content: space-between;
+                flex-grow: 1;
+
+                @media(max-width: 575px) {
+                    flex-direction: column;
+                    align-items: flex-end;
+                }
+            }
+
+            .modal-title {
+                flex-grow: 0;
+
+                @media(max-width: 575px) {
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+
+            .main-dropdown .dropdown-menu {
+                width: 200px;
+
+                .dropdown-item {
+                    justify-content: stretch;
+                    padding: 8px 0;
+                }
+            }
+        }
+        
+        .modal-body {
+            padding-top: 32px
+        }
+
+        .modal-reviews {
+            max-height: 460px;
+            @include srcolling-section(auto);
+        }
+
+        .review {
+            width: 100%;
+            border: none;
+            padding: 0;
+
+            &:not(:last-child) {
+                margin-bottom: 20px;
+            }
+
+            p {
+                font-size: 12px;
+                color: $black-color
+            }
+
+            .rate-box {
+                display: flex;
+                justify-content: space-between;
+                gap: 24px;
+                margin-bottom: 8px;
+            }
+        }
+    }
+}
+
+/*********************** End style real-estate-reviews ***************************/
+
+/*********************** Start style real-estate-map **************************/
+
+#content.real-estate-page section.real-estate-map {
+    margin: 32px 0 40px;
+
+    iframe {
+        width: 100%;
+        height: 250px;
+    }
+}
+
+/*********************** End style real-estate-map ***************************/
+

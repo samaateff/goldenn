@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="68" height="46" viewBox="0 0 68 46">
+  <g id="Group_40792" data-name="Group 40792" transform="translate(-48 -5)">
+    <text id="تحويل_بنكى" data-name="تحويل بنكى" transform="translate(48 43)" fill="#101010" font-size="14" font-family="Cairo-Medium, Cairo" font-weight="500"><tspan x="0" y="0">تحويل بنكى</tspan></text>
+    <g id="Group_40790" data-name="Group 40790" transform="translate(0 -88)">
+      <g id="Rectangle_24008" data-name="Rectangle 24008" transform="translate(72 93)" fill="#101010" stroke="#707070" stroke-width="1" opacity="0">
+        <rect width="20" height="20" stroke="none"/>
+        <rect x="0.5" y="0.5" width="19" height="19" fill="none"/>
+      </g>
+      <path id="bank_1_" data-name="bank (1)" d="M16,15.334a.667.667,0,0,1-.667.667H.666a.667.667,0,1,1,0-1.333H15.334A.667.667,0,0,1,16,15.334ZM.193,5.7A1.629,1.629,0,0,1,.3,3.991a3.144,3.144,0,0,1,1.112-1l5-2.6a3.45,3.45,0,0,1,3.183,0l5,2.6a3.144,3.144,0,0,1,1.112,1,1.629,1.629,0,0,1,.1,1.711,1.809,1.809,0,0,1-1.611.963H14V12h.667a.667.667,0,0,1,0,1.333H1.333a.667.667,0,1,1,0-1.333H2V6.667H1.8A1.809,1.809,0,0,1,.193,5.7ZM3.333,12h2V6.667h-2ZM6.667,6.667V12H9.334V6.667Zm6,0h-2V12h2ZM1.375,5.083a.478.478,0,0,0,.43.25H14.2a.478.478,0,0,0,.43-.25.3.3,0,0,0-.016-.333,1.8,1.8,0,0,0-.633-.576l-5-2.6a2.118,2.118,0,0,0-1.951,0l-5,2.6a1.808,1.808,0,0,0-.633.577.3.3,0,0,0-.017.333Z" transform="translate(74.002 95.001)" fill="#101010"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,80 @@
+.sign-in-popups .main-popup#update_verification_code .modal-body {
+    padding-top: 16px;
+  }
+  .sign-in-popups .main-popup#update_verification_code .modal-body .heading-text {
+    margin-bottom: 16px;
+  }
+  .sign-in-popups .main-popup#update_verification_code .verification-inputs {
+    margin-bottom: 100px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 16px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .sign-in-popups .main-popup#update_verification_code .verification-inputs input {
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 36px;
+    color: var(--black-color);
+    outline: none;
+    border: 1px solid #D6D6D6;
+    border-radius: 8px;
+    width: 48px;
+    height: 48px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+    direction: rtl;
+  }
+  .sign-in-popups .main-popup#update_verification_code .verification-inputs input::-webkit-outer-spin-button, .sign-in-popups .main-popup#update_verification_code .verification-inputs input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  .sign-in-popups .main-popup#update_verification_code .verification-inputs input[type=number] {
+    -moz-appearance: textfield;
+  }
+  .notifications-items a.item.active{
+    background-color: #F1F1F1;
+  }
+  .badge
+  {
+    margin-top: -23px;
+    margin-left: -23px;
+    font-size: 12px;
+    background-color: var(--second-color);
+    width: 20px;
+    height: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-right: auto;
+  }
+
+  .tooltip-inner {
+    max-width: 350px;
+    /* If max-width does not work, try using width instead */
+    width: 350px;
+    /*background-color: #2c1d65;
+     color: #000;
+    box-shadow: #D6D6D6; */
+}

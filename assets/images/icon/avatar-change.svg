@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+  <g id="Group_32751" data-name="Group 32751" transform="translate(-731 -345)">
+    <circle id="Ellipse_10" data-name="Ellipse 10" cx="14" cy="14" r="14" transform="translate(731 345)" fill="#fff"/>
+    <g id="Group_32565" data-name="Group 32565" transform="translate(-345.942 -891.942)">
+      <g id="Rectangle_20398" data-name="Rectangle 20398" transform="translate(1080.942 1240.942)" fill="#2f375f" stroke="#707070" stroke-width="1" opacity="0">
+        <rect width="20" height="20" stroke="none"/>
+        <rect x="0.5" y="0.5" width="19" height="19" fill="none"/>
+      </g>
+      <g id="camera" transform="translate(1082.657 1242.657)">
+        <path id="Path_28243" data-name="Path 28243" d="M14.179,2.071,13.2.806A2.087,2.087,0,0,0,11.563,0H8.9a2.087,2.087,0,0,0-1.64.806L6.279,2.071Z" transform="translate(-1.944 0)" fill="#2f375f"/>
+        <circle id="Ellipse_10-2" data-name="Ellipse 10" cx="3" cy="3" r="3" transform="translate(5.285 6.285)" fill="#2f375f"/>
+        <path id="Path_28244" data-name="Path 28244" d="M13.118,5H3.452A3.475,3.475,0,0,0,0,8.489v6.279a3.475,3.475,0,0,0,3.452,3.489h9.666a3.475,3.475,0,0,0,3.452-3.489V8.489A3.475,3.475,0,0,0,13.118,5ZM8.285,15.466a4.186,4.186,0,1,1,4.143-4.186,4.165,4.165,0,0,1-4.143,4.186Z" transform="translate(0 -2.1)" fill="#2f375f"/>
+      </g>
+    </g>
+  </g>
+</svg>

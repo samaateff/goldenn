@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.167" y1="0.905" x2="0.917" y2="0.054" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#6844ee"/>
+      <stop offset="1" stop-color="#2c1d65"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_39539" data-name="Group 39539" transform="translate(-662 -912)">
+    <rect id="Rectangle_23659" data-name="Rectangle 23659" width="64" height="64" rx="20" transform="translate(726 912) rotate(90)" fill="url(#linear-gradient)"/>
+    <g id="Group_39536" data-name="Group 39536" transform="translate(-236 -1476)">
+      <g id="Rectangle_23038" data-name="Rectangle 23038" transform="translate(914 2404)" fill="#fff" stroke="#707070" stroke-width="1" opacity="0">
+        <rect width="32" height="32" stroke="none"/>
+        <rect x="0.5" y="0.5" width="31" height="31" fill="none"/>
+      </g>
+      <g id="Group_39541" data-name="Group 39541" transform="translate(159 1192)">
+        <g id="Rectangle_23665" data-name="Rectangle 23665" transform="translate(757 1214)" fill="#fff" stroke="#707070" stroke-width="1" opacity="0">
+          <rect width="28" height="28" stroke="none"/>
+          <rect x="0.5" y="0.5" width="27" height="27" fill="none"/>
+        </g>
+        <path id="umbrella_1_" data-name="umbrella (1)" d="M27.66,11.141a14.967,14.967,0,0,0-12.5-8.757V1.167a1.166,1.166,0,1,0-2.332,0V2.383A14.977,14.977,0,0,0,.314,11.14a4.6,4.6,0,0,0,.472,4.3A4.682,4.682,0,0,0,4.667,17.5H12.83v7a1.166,1.166,0,1,1-2.332,0,1.166,1.166,0,1,0-2.332,0,3.5,3.5,0,1,0,7,0v-7h8.143a4.684,4.684,0,0,0,3.882-2.064,4.608,4.608,0,0,0,.472-4.3Z" transform="translate(757.013 1214)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

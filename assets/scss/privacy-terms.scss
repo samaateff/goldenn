@@ -1,0 +1,63 @@
+// import global style from style.css
+@use "style";
+
+// import varibles & mixins
+@use "includes/varibles.scss" as *;
+@use "includes/mixins" as *;
+
+
+/*********************************************************************
+************************ Style About Us page  ************************
+*********************************************************************/
+
+#content.privacy-policy {
+    padding-bottom: $main-space;
+
+    @media(max-width: 991px) {
+        padding-bottom: 40px;
+    }
+}
+
+
+/*********************** Start style Header **************************/
+
+#content.privacy-policy section.content {
+    .text {
+        margin-top: 32px;
+
+        @media(max-width: 575px) {
+            margin-top: 24px;
+        }
+
+        h2, h3 {
+            @include font-color(21px, 500, 32px, $black-color);
+            margin: 16px 0 8px;
+
+            @media(max-width: 575px) {
+                font-size: 18px;
+                line-height: 30px;
+            }
+        }
+
+        p {
+            @include font-color(16px, 400, 30px, $text-color);
+
+            @media(max-width: 575px) {
+                font-size: 14px;
+                line-height: 26px;
+            }
+        }
+    }
+    
+    a {
+        font-weight: 500;
+        color: $main-color;
+        transition: $main-transition;
+
+        &:hover {
+            color: $second-color
+        }
+    }
+}
+
+/*********************** End style Header ***************************/

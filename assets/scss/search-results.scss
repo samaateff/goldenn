@@ -1,0 +1,100 @@
+// import global style from style.css
+@use "style";
+
+// import varibles & mixins
+@use "includes/varibles.scss" as *;
+@use "includes/mixins" as *;
+
+
+/*********************************************************************
+**************************** Style page  *****************************
+*********************************************************************/
+
+#content.search-results {
+    padding-bottom: $main-space;
+
+    @media(max-width: 991px) {
+        padding-bottom: 40px;
+    }
+}
+
+// #header {
+//     box-shadow: 0px 1px 2px #00000029;
+// }
+
+/*********************** Start style Header **************************/
+
+#content.search-results section.header {
+    box-shadow: 0px 3px 6px #00000029;
+    padding: 20px 0;
+    background-color: white;
+    position: sticky;
+    top: 82px;
+    left: 0;
+    z-index: 99;
+
+    @media (max-width: 575px) {
+        top: 66px;
+    }
+
+    .search-options {
+        @include flex(12px);
+
+        @media (max-width: 991px) {
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .option-button {
+            @include flex(32px);
+            @include font-color(12px, 400, 22px, $black-color);
+            border-radius: 100px;
+            padding: 8px 16px;
+            background-color: #ECECEC;
+            cursor: auto;
+
+            @media (max-width: 991px) {
+                gap: 12px;
+            }
+    
+            .icon-remove {
+                cursor: pointer;
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                font-size: 18px;
+                @include center;
+                background-color: white;
+                color: $second-color;
+                transition: $main-transition;
+    
+                @media (max-width: 991px) {
+                    width: 20px;
+                    height: 20px;
+                    font-size: 16px;
+                }
+
+                &:hover {
+                    background-color: $second-color;
+                    color: white
+                }
+            }
+        }
+    }
+}
+
+/*********************** End style Header ***************************/
+
+/*********************** Start style Header **************************/
+
+#content.search-results section.real-estate-section h1 {
+    @include font-color(21px, 400, 39px, $black-color);
+    margin: 24px 0;
+
+    .real-estate-number {
+        color: $main-color
+    }
+}
+
+/*********************** End style Header ***************************/

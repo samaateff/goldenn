@@ -1,0 +1,11 @@
+<svg id="maid_room_mob" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="Rectangle_5896" data-name="Rectangle 5896" fill="#737373" stroke="#707070" stroke-width="1" opacity="0">
+    <rect width="20" height="20" stroke="none"/>
+    <rect x="0.5" y="0.5" width="19" height="19" fill="none"/>
+  </g>
+  <g id="Rectangle_22838" data-name="Rectangle 22838" transform="translate(2 2)" fill="#737373" stroke="#707070" stroke-width="1" opacity="0">
+    <rect width="16" height="16" stroke="none"/>
+    <rect x="0.5" y="0.5" width="15" height="15" fill="none"/>
+  </g>
+  <path id="wifi" d="M6.672,13.667A1.334,1.334,0,1,1,8.006,15,1.338,1.338,0,0,1,6.672,13.667Zm5.576-2.827a.994.994,0,0,0,0-1.413,6.012,6.012,0,0,0-8.491,0A1,1,0,0,0,5.171,10.84a4.011,4.011,0,0,1,5.663,0,1,1,0,0,0,1.414,0ZM15.7,7.727a1,1,0,0,0,.033-1.413c-.06-.06-.12-.127-.18-.187A10.672,10.672,0,0,0,.462,6.12c-.06.06-.12.127-.18.187a1,1,0,0,0,1.447,1.38l.147-.153a8.674,8.674,0,0,1,12.266,0l.147.147a.985.985,0,0,0,.72.307,1.026,1.026,0,0,0,.694-.273Z" transform="translate(1.994 1)" fill="#737373"/>
+</svg>

@@ -1,0 +1,269 @@
+// import global style from style.css
+@use "style";
+
+// import varibles & mixins
+@use "includes/varibles.scss" as *;
+@use "includes/mixins" as *;
+
+
+/*********************************************************************
+************************ Style About Us page  ************************
+*********************************************************************/
+
+#content.complete-reservation {
+    padding-bottom: $main-space;
+
+    @media(max-width: 991px) {
+        padding-bottom: 40px;
+    }
+}
+
+
+/*********************** Start style complete-reservation **************************/
+
+#content.complete-reservation section.complete-reservation {
+
+    .box {
+        display: grid;
+        grid-template-columns: 1fr 500px;
+        gap: 56px;
+        align-items: flex-start;
+
+        @media(max-width: 1199px) {
+            grid-template-columns: 1fr 360px;
+            gap: 48px;
+        }
+
+        @media(max-width: 991px) {
+            grid-template-columns: 1fr 320px;
+            gap: 32px;
+        }
+
+        @media(max-width: 767px) {
+            grid-template-columns: 100%;
+            gap: 64px;
+        }
+    }
+
+    .real-state-info {
+        border: 1px solid #D6D6D6;
+        border-radius: 24px;
+        padding: 16px;
+        margin-bottom: 32px;
+
+        @media(max-width: 575px) {
+            padding: 8px;
+            border-radius: 12px;
+        }
+
+        .info {
+            @include flex(12px);
+
+            @media(max-width: 575px) {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .image img {
+                width: 150px;
+                height: 100px;
+                object-fit: cover;
+                border-radius: 12px;
+                max-width: 100%;
+
+                @media(max-width: 575px) {
+                    width: 100%;
+                    height: auto;
+                    max-height: 250px;
+                }
+            }
+
+            .text {
+                h2 {
+                    @include font-color(16px, 600, 30px, $black-color);
+                    margin-bottom: 4px;
+                }
+
+                .cost {
+                    @include font-color(14px, 600, 26px, $main-color);
+                    margin-bottom: 8px;
+
+                    .currency {
+                        @include font-color(12px, 400, 23px, $text-color);
+                    }
+                }
+
+                .loaction {
+                    @include flex(4px);
+                    @include font-color(14px, 400, 26px, $black-color);
+                }
+            }
+
+        }
+        
+        hr {
+            border: 1px solid #D6D6D6;
+            margin: 12px 0 20px;
+        }
+
+        .reservation-data {
+
+            .d-flex {
+                @media(max-width: 575px) {
+                    flex-wrap: wrap;
+                }
+            }
+
+            h4.data {
+                @include font-color(16px, 500, 30px, $text-color);
+                margin-bottom: 8px;
+
+                @media(max-width: 575px) {
+                    font-size: 14px;
+                }
+
+                span {
+                    color: $black-color   
+                }
+            }
+
+            .edit {
+                @include flex(10px);
+                @include font-color(16px, 500, 30px, $second-color);
+                text-decoration: underline;
+                transition: $main-transition;
+
+                &:hover {
+                    text-decoration: none;
+                }
+
+                svg {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    .payment {
+        border: 1px solid #D6D6D6;
+        border-radius: 24px;
+        padding: 24px;
+
+        @media(max-width: 575px) {
+            padding: 12px;
+            border-radius: 12px;
+        }
+
+        .section-heading {
+            @include font(21px, 600, 39px)
+        }
+
+        .payment-method {
+            @include flex(24px);
+            justify-content: space-between;
+            background-color: #EAE6FF;
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 12px;
+            cursor: pointer;
+
+            @media(max-width: 991px) {
+                gap: 12px
+            }
+
+            @media(max-width: 575px) {
+                padding: 12px;
+            }
+
+            &.active {
+                border: 1px solid $main-color;
+            }
+
+            .checkbox-feild {
+                @include flex(16px);
+
+                input[type="radio"] {
+                    border: none;
+                    border-radius: 50%;
+                    box-shadow: none;
+                    cursor: pointer;
+                    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+
+                    &:checked {
+                        background-color: $main-color
+                    }
+                }
+
+                .method-name {
+                    @include font-color(16px, 500, 30px, $black-color);
+
+                    @media(max-width: 991px) {
+                        font-size: 14px;
+                    }
+
+                    span {
+                        @include font-color(12px, 400, 23px, $text-color);
+
+                        @media(max-width: 991px) {
+                            font-size: 10px;
+                        }
+    
+                    }
+                }
+            }
+
+
+            img {
+                min-width: 40px;
+                max-width: 100%;
+                height: 24px;
+                object-fit: cover;
+            }
+        }
+
+        hr {
+            border: 1px solid #D6D6D6;
+            margin: 24px 0;
+        }
+
+        .Payment-data {
+            @include flex(32px);
+            justify-content: space-between;
+            margin-bottom: 10px;
+
+            h4 {
+                @include font-color(16px, 500, 30px, $text-color);
+            }
+
+            .cost {
+                @include font-color(14px, 600, 26px, $black-color);
+
+                .currency {
+                    color: $text-color
+                }
+            }
+        }
+
+        .pay-now {
+            display: block;
+            width: 100%;
+            @include font-color(14px, 400, 26px, white);
+            background-color: $main-color;
+            padding: 13px 30px;
+            border: 2px solid $main-color;
+            border-radius: 8px;
+            transition: $main-transition;
+            text-align: center;
+            margin-top: 32px;
+
+            &:hover {
+                background-color: white;
+                color: $main-color;
+                font-weight: 600;
+            }
+        }
+    }
+
+}
+
+/*********************** End style complete-reservation ***************************/

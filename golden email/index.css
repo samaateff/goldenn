@@ -1,0 +1,246 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: "Cairo", sans-serif;
+}
+
+.thank{
+    width: 70%;
+    margin: auto;
+    padding: 50px;
+}
+.thank .logo{
+    height: 100px;
+    background-image: url(./images/Rectangle\ 18.png);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    border-radius: 10px;
+
+}
+.thank .done{
+    border: 1px solid #2C1D651A;
+    border-radius: 10px;
+    padding: 40px 0;
+}
+.thank .doneImg{
+    width: 20%;
+    margin: auto;
+    text-align: center;
+}
+.thank .doneImg h1{
+    font-size: 25px;
+    margin-top: 20px;
+    letter-spacing: .5px;
+     color: #2C1D65;
+     margin-bottom: 30px;
+}
+.thank .doneImg h1 span{
+        color:#CB1B64 ;
+}
+.thank .details{
+    border-top: 1px dashed #2C1D6533;
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    padding: 10px 0;
+}
+.thank .details h2{
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+.thank .number{
+    width: 90%;
+    margin: auto;
+    border: 1px solid #2b1d6514;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 30px;
+    margin-bottom: 20px;
+}
+.thank .number h3{
+    font-weight: 400;
+}
+.thank .number p{
+    color: #CB1B64;
+    font-weight: 700;
+}
+.thank .number2{
+    background-color: #2C1D650A;
+}
+.thank .number3{
+    background-color: #2C1D65;
+}
+.thank .number4{
+    background-color: #CB1B64;
+}
+.thank .number5{
+    background: linear-gradient(90deg, #CB1B64 0%, #331D66 100%);
+}
+.thank .num{
+    color: white;
+}
+.thank .num p{
+    color: white;
+    font-weight: 400;
+}
+.thank .last{
+    height: 200px;
+    background-image: url(./images/Rectangle\ 17.png);
+    background-position: center;
+    background-size: cover;
+    width: 90%;
+    margin: auto;
+    border-radius: 10px;
+    text-align: center;
+    padding-top: 30px;
+    color: white;
+}
+.thank .last h4{
+    font-size: 20px;
+    font-weight: 400;
+}
+.thank .last .socail{
+    margin: 10px 0;
+}
+.thank .last .socail .link{
+    margin: 0 5px;
+}
+.thank .last .socail a img{
+    width: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:1024px){
+    .thank{
+        width: 90%;
+        margin: auto;
+        padding: 0px;
+    }
+
+    .thank .logo{
+        height: 80px;
+        border-radius: 10px;
+    }
+
+    .thank .doneImg{
+        width: 100%;
+        margin: auto;
+        text-align: center;
+    }
+    .thank .number{
+        width: 93%;
+        padding: 7px 15px;
+    }
+    .thank .last{
+        width: 93%;
+    }
+}
+@media screen and (max-width:992px){
+    
+    .thank{
+        width: 90%;
+        margin: auto;
+        padding: 0px;
+    }
+
+    .thank .logo{
+        height: 80px;
+        border-radius: 10px;
+    }
+
+    .thank .doneImg{
+        width: 100%;
+        margin: auto;
+        text-align: center;
+    }
+    .thank .number{
+        width: 93%;
+        padding: 7px 15px;
+    }
+    .thank .last{
+        width: 93%;
+    }
+}
+@media screen and (max-width:768px){
+    .thank{
+        width: 90%;
+        margin: auto;
+        padding: 0px;
+    }
+
+    .thank .logo{
+        height: 80px;
+        border-radius: 10px;
+    }
+
+    .thank .doneImg{
+        width: 100%;
+        margin: auto;
+        text-align: center;
+    }
+    .thank .number{
+        width: 93%;
+        padding: 7px 15px;
+    }
+    .thank .last{
+        width: 93%;
+    }
+
+}
+@media screen and (max-width:600px){
+    
+    .thank{
+        width: 90%;
+        margin: auto;
+        padding: 0px;
+    }
+
+    .thank .logo{
+        height: 80px;
+        border-radius: 10px;
+    }
+
+    .thank .doneImg{
+        width: 100%;
+        margin: auto;
+        text-align: center;
+    }
+    .thank .number{
+        width: 98%;
+        margin: auto;
+        border: 1px solid #2b1d6514;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 7px 5px;
+        margin-bottom: 20px;
+    }
+
+    .thank .last{
+        width: 98%;
+    }
+
+}

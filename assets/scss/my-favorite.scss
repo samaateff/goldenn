@@ -1,0 +1,19 @@
+// import global style from style.css
+@use "style";
+
+// import varibles & mixins
+@use "includes/varibles.scss" as *;
+@use "includes/mixins" as *;
+
+
+/*********************************************************************
+************************ Style About Us page  ************************
+*********************************************************************/
+
+#content.my-favorite {
+    padding-bottom: $main-space;
+
+    @media(max-width: 991px) {
+        padding-bottom: 40px;
+    }
+}

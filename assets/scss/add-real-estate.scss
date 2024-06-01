@@ -1,0 +1,497 @@
+// import global style from style.css
+@use "style";
+
+// import varibles & mixins
+@use "includes/varibles.scss" as *;
+@use "includes/mixins" as *;
+
+
+/*********************************************************************
+************************ Style About Us page  ************************
+*********************************************************************/
+
+#content.add-real-estate {
+    padding-top: 24px;
+
+    @media(max-width: 991px) {
+        padding-top: 20px;
+    }
+}
+
+/*********************** Start style Header **************************/
+
+#content.add-real-estate header.page-header {
+    margin-bottom: 40px;
+
+    @media(max-width: 575px) {
+        margin-bottom: 24px;
+    }
+
+    .box {
+        @include flex(32px);
+        justify-content: space-between;
+
+        @media(max-width: 575px) {
+            gap: 16px
+        }
+    }
+
+    h1.section-heading {
+        margin-bottom: 0
+    }
+
+    .back-estate {
+        @include font-color(12px, 400, 22px, $black-color);
+        @include flex(10px);
+        border: 1px solid $main-color;
+        border-radius: 100px;
+        padding: 9px  13px;
+        transition: $main-transition;
+
+        svg {
+            font-size: 16px;
+            color: $main-color;
+            transition: $main-transition;
+        }
+
+        &:hover {
+            background-color: $main-color;
+            color: white;
+
+            svg {
+                color: white
+            }
+        }
+    }
+    
+}
+
+/*********************** End style Header ***************************/
+
+/*********************** Start style add-estate-section **************************/
+
+#content.add-real-estate section.add-estate-section {
+    position: relative;
+
+    .layout {
+        display: grid;
+        grid-template-columns: 1fr 400px;
+        gap: 150px;
+
+        @media(max-width: 1199px) {
+            grid-template-columns: 1fr 350px;
+            gap: 100px;
+        }
+
+        @media(max-width: 991px) {
+            grid-template-columns: 1fr 320px;
+            gap: 64px;
+        }
+
+        @media(max-width: 767px) {
+            grid-template-columns: 1fr;
+        }
+
+        .box-between {
+            @include flex(32px);
+            justify-content: space-between;
+            margin-bottom: 12px
+        }
+
+        .facilities .box-between {
+            margin-bottom: 20px
+        }
+
+        .checkboxs-box {
+            @include flex(32px);
+        }
+
+        .filed-box {
+            display: grid;
+            grid-template-columns: repeat(2, calc((100% - 24px)/ 2));
+            gap: 12px 24px
+        }
+    }
+
+    .real-estate-info {
+        @include srcolling-section(calc(100vh - 82px - 115px));
+        padding-bottom: 72px;
+        min-height: 520px;
+
+        @media(max-width:767px) {
+            min-height: 450px;
+        }
+
+        @media(max-width:575px) {
+            height: calc(100vh - 66px - 90px);
+        }
+
+        .actions {
+            @include flex(24px);
+            margin-bottom: 40px;
+
+            @media(max-width: 767px) {
+                margin-bottom: 24px;
+                gap: 16px
+            }
+
+            a {
+                @include font(14px, 500, 26px);
+                display: block;
+                width: 50%;
+                padding: 10px;
+                transition: $main-transition;
+                border-radius: 4px;
+                @include flex(10px);
+                justify-content: center;
+                border: 1px solid $main-color;
+
+                svg {
+                    font-size: 18px;
+                }
+
+                &.preview-estate {
+                    background-color: $main-color;
+                    color: white;
+
+                    &:hover {
+                        background-color: transparent;
+                        color: $main-color
+                    }
+                }
+
+                &.share-estate {
+                    color: $main-color;
+
+                    &:hover {
+                        background-color: $main-color;
+                        color: white;
+                    }
+                }
+            }
+        }
+
+        form.add-estate-info {
+
+            .form-heading {
+                @include font-color(14px, 600, 26px, $black-color)
+            }
+
+            .form-second-heading {
+                @include font-color(12px, 400, 23px, $black-color)
+            }
+
+            .status {
+                margin-bottom: 24px;
+    
+                .form-switch  {
+                    padding-right: 0;
+                    padding-left: 56px;
+    
+                    label {
+                        @include font-color(14px, 500, 26px, $black-color)
+                    }
+    
+                    input {
+                        float: left;
+                        height: 24px;
+                        width: 46px;
+                        margin-left: -56px;
+                        cursor: pointer;
+                        box-shadow: none;
+                        border: 2px solid $main-color;
+                        background-color: transparent;
+                        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
+                        background-position: left center;
+                        
+                        &:checked {
+                            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+                            background-position: right center;
+                            background-color: $main-color;
+                        }
+                    }
+                }
+            }
+
+            .input-field {
+                margin-bottom: 20px;
+
+                label {
+                    @include font-color(12px, 400, 23px, $text-color);
+                    margin-bottom: 2px
+                }
+
+                input,
+                select,
+                textarea {
+                    @include font-color(14px, 600, 26px, $black-color);
+                    border: 1px solid #D6D6D6;
+                    border-radius: 8px;
+                    padding: 14px 12px;
+                    box-shadow: none;
+                    direction: rtl;
+
+                    &::placeholder {
+                        @include font-color(12px, 400, 23px, $text-color);
+                        text-align: left;
+                    }
+
+                    &[type="number"] {
+                        @include input-number;
+                    }
+                }
+
+                input.special-input::placeholder {
+                    @include font-color(14px, 600, 26px, $black-color);
+                    text-align: unset;
+                }
+
+                select option {
+                    @include font-color(14px, 500, 26px, $black-color);
+                }
+            }
+
+            .checkbox-field {
+                @include flex(12px);
+
+                &.special-field {
+                    border: 1px solid #D6D6D6;
+                    border-radius: 8px;
+                    padding: 8px 12px;
+                }
+
+                input[type="radio"],
+                input[type="checkbox"] {
+                    box-shadow: none;
+                    width: 20px;
+                    height: 20px;
+                    cursor: pointer;
+                    border: 1px solid #CCCCCC;
+    
+                    &:checked {
+                        border: none;
+                        background-color: $main-color;
+                        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+                    }
+                }
+
+                label {
+                    cursor: pointer;
+                    @include font-color(14px, 600, 26px, $black-color)
+                }
+            }
+
+            .images-section-title {
+                margin-bottom: 12px;
+
+                h2 {
+                    @include font-color(17px, 600, 32px, $black-color);
+                    margin-bottom: 8px;
+                }
+
+                p {
+                    @include font-color(14px, 400, 23px, $text-color);
+                }
+            }
+
+            .uploader-images {
+
+                .estate-gallery {
+                    display: grid;
+                    grid-template-columns: repeat(4, calc((100% - 32px) / 4));
+                    gap: 12px 8px;
+                    margin-bottom: 20px;
+                    
+                    .image {
+                        position: relative;
+                        border-radius: 8px;
+                        cursor: pointer;
+
+                        &::after {
+                            content: "";
+                            @include overlay(#10101017);
+                            z-index: -1;
+                        }
+        
+                        img {
+                            width: 100%;
+                            aspect-ratio: 1;
+                            max-height: 200px;
+                            object-fit: cover;
+                            border-radius: inherit;
+                            position: relative;
+                            z-index: -1;
+                        }
+
+                        .close-button {
+                            width: 24px;
+                            height: 24px;
+                            border-radius: 50%;
+                            background-color: rgba(236, 236, 236, 0.8);
+                            @include center;
+                            position: absolute;
+                            top: 8px;
+                            right: 8px;
+                            cursor: pointer;
+
+                            svg {
+                                font-size: 18px;
+                                color: $black-color
+                            }
+                        }
+
+                        .checkbox-field {
+                            position: absolute;
+                            top: 8px;
+                            left: 8px;
+
+                            input {
+                                margin: 0;
+                                width: 16px;
+                                height: 16px;
+                            }
+                        }
+                    }
+    
+                }
+
+                .file-field {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border: 1px dashed $main-color;
+                    background-color: #ECECEC;
+                    border-radius: 8px;
+                    padding: 16px 24px;
+                    margin-bottom: 12px;
+                    transition: $main-transition;
+    
+                    &.active {
+                        border-color: $second-color;
+
+                        label {
+                            color: $second-color
+                        }
+                    }
+    
+                    label {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 2px;
+                        align-items: center;
+                        @include font-color(12px, 500, 23px, $main-color);
+                        cursor: pointer;
+    
+                        svg  {
+                            font-size: 24px;
+                        }
+                    }
+    
+                    input[type="file"] {
+                        display: none
+                    }
+                }
+            }
+
+            .increment-field {
+                @include flex(12px);
+
+                .plus,
+                .minus {
+                    outline: none;
+                    border: 1px solid #D6D6D6;
+                    color: $black-color;
+                    border-radius: 50%;
+                    width: 28px;
+                    height: 28px;
+                    @include center;
+                    flex-shrink: 0;
+                    transition: $main-transition;
+
+                    &:hover {
+                        border-color: $main-color;
+                    }
+
+                    svg {
+                        font-size: 12px;
+                        color: $main-color
+                    }
+                }
+
+                input[type="number"] {
+                    @include input-number;
+                    @include font-color(14px, 500, 26px, $black-color);
+                    border: none;
+                    text-align: center;
+                    width: 18px;
+                }
+            }
+
+            .main-accordion {
+                .accordion-item {
+                    padding: 0 16px
+                }
+
+                .accordion-header {
+                    padding: 12px 0;
+                }
+
+                .accordion-header {
+                    @include font-color(12px, 600, 23px, $black-color)
+                }
+            }
+
+            .add-estate {
+                @include font-color(14px, 600, 26px, white);
+                background-color: $text-color;
+                width: 340px;
+                max-width: 100%;
+                padding: 15px;
+                text-align: center;
+                transition: $main-transition;
+                border-radius: 8px;
+                position: absolute;
+                bottom: 12px;
+                left: 50%; 
+                transform: translateX(-50%);
+                z-index: 1;
+
+                @media(max-width:767px) {
+                    bottom: 6px
+                }
+
+                @media(max-width:767px) {
+                    width: 200px;
+                }
+
+
+                &:hover {
+                    background-color: $main-color;
+                }
+            }
+        }
+    }
+
+
+
+    .preview {
+
+        @media(max-width: 767px) {
+            display: none;
+        }
+
+        .real-estate {
+            
+            &:hover {
+                box-shadow: 0px 2px 2px #00000029;
+            }
+
+            .rate {
+                @include font(12px, 400, 19px);
+            }
+ 
+        }
+    } 
+}
+
+/*********************** End style add-estate-section ***************************/

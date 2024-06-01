@@ -1,0 +1,238 @@
+#content.my-favorite{
+  padding-bottom: 20px !important;
+}
+img {
+  display: block;
+  width: 100%;
+}
+.packagesInfo {
+  /* border: 1px solid #2c1d6524; */
+  font-family: "Cairo";
+  padding-bottom: 50px;
+}
+.packagesInfo h1{
+  font-weight: 400;
+  font-size: 24px;
+  color:#2C1D65 ;
+}
+@media (max-width: 767px) {
+    .packagesInfo h1 {
+        font-weight: 500;
+    }
+}
+.packagesInfo .back a {
+  font-family: "Cairo";
+  color: #b4b4b4;
+  font-size: 20px;
+}
+.parag{
+  font-size: 13px;
+  color: #2C1D656E;
+  display: none;
+}
+.packages .containerPg {
+  width: 80%;
+  margin: auto;
+}
+.packages .cards {
+  background-image: url(../../images/93433b46d19687841d946d75ddf55e6b.png);
+  background-position: center;
+  background-size: cover;
+  padding: 30px 10px;
+  border-radius: 10px;
+  border: 1px solid #2C1D6512;
+  margin-inline-start: 25px;
+
+}
+@media (max-width: 767px) {
+    .ImgCard {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 !important;
+}
+}
+.packages .ImgCard {
+    background-color: white;
+    width: 40%;
+    height: 60px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    padding: 10px;
+    border-radius: 10px;
+}
+.packages .ImgCard img {
+  max-width: 28px;
+}
+.packages .Cardtitle h2 {
+  color: white;
+  font-size: 14px;
+  margin: 15px 0 20px;
+}
+.packages .card {
+  background-color: #2c1d6508;
+  padding: 30px 10px;
+  border-radius: 10px;
+  margin-inline-start: 25px;
+  border: 1px solid #2C1D6512;
+}
+.packages .Cardtitle2 h2 {
+  color: #2C1D65;
+  font-size: 14px;
+  margin: 15px 0 20px;
+}
+.heading{
+  font-weight: 700 !important;
+}
+@media screen and (max-width: 1024px) {
+  .packages .ImgCard {
+    background-color: white;
+    width: 30%;
+    height: 30%;
+    display: inline-block;
+  }
+  .packages .cards{
+    margin-inline-start: 0px;
+  }
+  .packages .card {
+    margin-bottom: 10px;
+    margin-inline-start: 0px;
+  }
+  .packages .Cardtitle2 h2 {
+    color: black;
+    font-size: 12px;
+    margin: 20px 0;
+  }
+  .packages .Cardtitle h2 {
+    color: white;
+    font-size: 12px;
+    margin: 17px 0;
+  }
+  .packagesInfo {
+    border:none;
+    font-family: "Cairo";
+    padding-bottom: 10px;
+    padding-top: 10px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .packages .containerPg {
+    width: 95%;
+    margin: auto;
+  }
+  .packages .ImgCard {
+    background-color: white;
+    width: 7%;
+    height: 7%;
+    display: inline-block;
+    margin-bottom: -15px;
+  }
+  .packages .Cardtitle {
+    display: inline-block;
+    width: 70%;
+  }
+  .packages .Cardtitle h2 {
+    color: white;
+    font-size: 12px;
+    margin: 0px 0;
+  }
+  .packages .Cardtitle2 h2 {
+    color: black;
+    font-size: 12px;
+    margin: 0px 0;
+  }
+  .packages .Cardtitle2 {
+    width: 70%;
+    display: inline-block;
+  }
+  .packages .card {
+    display: block;
+  }
+  .card {
+    margin-bottom: 10px;
+  }
+  .packagesInfo {
+    border:none;
+    font-family: "Cairo";
+    padding-bottom: 10px;
+    padding-top: 0px !important;
+  }
+}
+@media screen and (max-width: 600px) {
+  .packages .containerPg {
+    width: 95%;
+    margin: auto;
+  }
+  .packages .ImgCard {
+    background-color: white;
+    width: 15%;
+    height: 15%;
+    display: inline-block;
+    margin-bottom: -18px;
+    margin-top: -10px;
+  }
+  .packages .card {
+    background-color: #2c1d6508;
+    padding: 20px 10px;
+    border-radius: 10px;
+    border: 1px solid #2C1D6512;
+    }
+    .packages .cards {
+    padding: 20px 10px;
+     display: flex;
+     align-items: center;
+    }
+  .packages .Cardtitle {
+    display: inline-block;
+    width: 70%;
+  }
+  .packages .Cardtitle h2 {
+    color: white;
+    font-size: 15px;
+    margin: 0px 0;
+    text-align: right;
+    margin-inline-start: 20px;
+    font-weight: bold;
+  }
+  .packages .Cardtitle2 h2 {
+    color: #2C1D65;
+    font-size: 15px;
+    margin: 0px 0;
+    text-align: right;
+    margin-inline-start: 20px;
+    font-weight: bold;
+}
+  .packages .Cardtitle2 {
+    width: 70%;
+    display: inline-block;
+  }
+  .packages .card {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+  }
+  .card {
+    margin-bottom: 10px;
+  }
+  .parag{
+    font-size: 12px;
+    color: #2C1D656E;
+    display: block;
+    padding-bottom: 0px !important;
+  }
+  .packagesInfo {
+    border: none;
+    font-family: "Cairo";
+    padding-bottom: 0px;
+  }
+  .row2{
+    flex-wrap: wrap-reverse;
+  }
+  .card2{
+    margin-bottom: 10px;
+  }
+}

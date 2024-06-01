@@ -1,0 +1,360 @@
+#content.my-favorite{
+  padding-bottom: 20px !important;
+}
+img {
+  display: block !important;
+  width: 100%;
+}
+.packagesInfo {
+  border: 1px solid #2c1d6524;
+  font-family: "Tajawal";
+  padding-bottom: 50px;
+  width: 85%;
+  margin: auto;
+}
+.packagesInfo  h1{
+  font-size: 24px;
+  margin-bottom: 35px;
+  font-weight: 700;
+  color: #2C1D65;
+}
+.back a {
+  font-family: "Cairo";
+  color: #b4b4b4;
+  font-size: 20px;
+  margin-top: -5px;
+}
+.back{
+  display: flex;
+  justify-content: end;
+  margin-top: -66px;
+  margin-left: 20px;
+}
+.back .icon{
+  max-width: 30px;
+  height: 30px;
+}
+.packages .cards2{
+  /* border: 1px solid transparent; */
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 1px;
+  border-right: 0px;
+  border-style: solid;
+  border-color: transparent;
+  padding: 0;
+  border-radius: 5px 5px 5px 5px;
+  margin-bottom: 10px;
+}
+
+.packages img{
+  width: 100%;
+  height: 146px;
+  object-fit: cover;
+  border-radius: 5px 5px 5px 5px;
+
+}
+.packages .cardText{
+  border-top: 0px;
+  border-right: 1px;
+  border-bottom: 1px;
+  border-left: 1px;
+  border-style: solid;
+  border-color: transparent;
+  border-radius: 0px 0px 10px 10px;
+  padding-top: 24px;
+  margin: 0px;
+  margin-top: -3px;
+}
+.packages .cardText h3{
+  font-size: 13px;
+  text-align: center;
+  font-weight: 700;
+  color: #2C1D65;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.row{
+  margin-top: 50px !important;
+}
+.toBook .row {
+    margin-top: 23px !important;
+}
+.packages .cardText .btn{
+  padding: 12px 0px; 
+  background-color: #b4b4b4;
+  width: 75%;
+  margin-bottom: 10px;
+  color: #707070;
+  font-weight: 400;
+}
+.toBook{
+  border-top: 1px DASHED #b4b4b4;
+  margin-top: 20px;
+  padding: 0;
+  display: none;
+  text-align: center;
+}
+.cardsText {
+    display: flex;
+    flex-direction: column;
+}
+
+.toBook h4 {
+    color: #2C1D65;
+    margin-bottom: 10px;
+    font-weight: 700;
+    width: fit-content;
+    margin-right: 20%;
+    
+}
+
+.toBook p {
+    color: #CB1B64;
+    width: fit-content;
+    margin-right: 20%;
+    
+}
+
+.toBook .pay{
+  padding: 10px 60px;
+  background-color: #2C1D65;
+  color: white;
+  border-radius: 5PX;
+}
+.click{
+  text-align: center;
+}
+
+.link{
+  display: flex;
+  justify-content: end;
+  text-align: end;
+  margin-top: -30px;
+  padding-left: 190px;
+}
+.link a{
+  font-size: 15px;
+  color: black;
+}
+
+.link2{
+  display: flex;
+  justify-content: end;
+  text-align: end;
+  padding: 10px 20px;
+  border:  1px solid black;
+  border-radius: 50px;
+}
+.back .icon {
+  max-width: 30px;
+  height: 18px;
+}
+#card , #card2 , #card3 , #card4 , #card5 , #card6{
+  cursor: pointer;
+}
+
+
+
+@media screen and (max-width:1024px){
+  .packagesInfo {
+    border: none;
+    font-family: "Cairo";
+    padding-bottom: 0px;
+    width: 85%;
+    margin: auto;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:768px){
+
+
+  .imgage {
+      width: 30%;
+  }
+  .imgage img{
+      height: 125px;
+  }
+  .cardText {
+      width: 70%;
+  }
+  .cards2{
+      display: flex;
+  }
+  .packages img{
+    width: 85%;
+  }
+  .packages .cardText h3{
+      font-size: 12px;
+      text-align: right;
+      margin: 20px 10px;
+      font-weight: 700;
+    }
+    .click {
+      text-align: right;
+      margin-right: 10px;
+    }
+    .packages .cardText .btn{
+      padding: 10px 20px; 
+      background-color: #CB1B64;
+      width: 40%;
+      font-size: 13px;
+      margin-bottom: 0px;
+      color: white;
+      font-size: 12px;
+    }
+    .packages .cardText{
+      padding-top: 10px;
+    }
+    .toBook {
+      text-align: center;
+    }
+    .toBook .col-xl-4{
+      margin-bottom: 20px;
+    }
+    .packagesInfo .back{
+      display: none;
+    }
+    .link{
+      display: flex;
+      justify-content: end;
+      text-align: end;
+      margin-top: -30px;
+  padding-left: 90px;
+    }
+    .link a{
+      color: #b4b4b4;
+    }
+
+
+}
+@media screen and (max-width:600px){
+  .packagesInfo {
+    border: none;
+    font-family: "Cairo";
+    padding-bottom: 0px;
+    width: 95%;
+    margin: auto;
+    padding-top: 0px !important;
+  }
+.packages img{
+  width: 100%;
+}
+ 
+  .imgage {
+      width: 33%;
+  }
+  .imgage img {
+    height: 110px;
+    object-fit: fill;
+  }
+  .cardText {
+      width: 70%;
+  }
+  .cards2{
+      display: flex;
+  }
+  .packages .cardText h3{
+      font-size: 13px;
+      text-align: right;
+      margin: 20px 10px;
+      font-weight: 700;
+    }
+    .click {
+      text-align: right;
+      margin-right: 10px;
+    }
+    .packages .cardText .btn{
+      padding: 10px 20px; 
+      background-color: #CB1B64;
+      width: 50%;
+      font-size: 13px;
+      margin-bottom: -4px;
+      color: white;
+    }
+    .toBook {
+      text-align: start;
+      padding-inline-start: 10px;
+    }
+    .toBook .col-xl-4{
+      margin-bottom: 20px;
+    }
+    .toBook .pay{
+      width: 95%;
+    }
+    .packagesInfo .back{
+      display: none;
+    }
+    .link{
+      display: flex;
+      justify-content: end;
+      text-align: end;
+      margin-top: -30px;
+  padding-left: 5px;
+  
+    }
+    .link a{
+      color: black;
+      font-size: 16px;
+      margin-top: 0px;
+    }
+    .link2{
+      display: flex;
+      justify-content: end;
+      text-align: end;
+      padding: 5px 20px;
+      border:  1px solid black;
+      border-radius: 50px;
+    }
+    .back .icon {
+      max-width: 30px;
+      height: 25px;
+  }
+  .packages .cardText{
+    padding-top: 5px;
+    padding-bottom: 0px;
+    border-top: 1px;
+    border-right: 1px;
+    border-bottom: 1px;
+    border-left: 1px;
+    border-style: solid;
+    border-radius: 10px 0px 0px 10px;
+    margin-top: 0px;
+    margin: 0;
+    margin-right: -3px;
+    z-index: -1;
+    border-color: transparent;
+  }
+  .col-xl-4{
+    padding: 0 0 !important;
+    margin-bottom: 5px;
+  }
+  .row{
+    padding: 0 0 !important;
+  }
+  .toBook{
+    padding: 0px 0;
+  }
+  .toBook h4 {
+    margin-right: 5%;
+    font-size: 18px;
+    }
+
+.toBook p {
+    margin-right: 5%;
+    font-size: 15px;
+
+    }
+.toBook .send.text-center.mt-5 {
+    margin-top: 10px !important;
+    }
+}

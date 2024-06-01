@@ -1,0 +1,4602 @@
+// @import "includes/bootstrap/scss/variables";
+@use "includes/varibles.scss" as *;
+@use "includes/mixins.scss" as *;
+
+/*********************************************************************
+************************* Style Global Rouls *************************
+*********************************************************************/
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth
+} 
+
+:root {
+    --main-color       : #2C1D65;
+    --second-color     : #D70060;
+    --black-color      : #101010;
+    --text-color       : #737373;
+    --background-color : #ECECEC;
+    --border-color     : #D6D6D6;
+    --main-space       : 90px;
+    --main-transition  : .4s;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0
+}
+
+p {
+    margin: 0
+}
+
+button {
+    background: none;
+    border: none;
+}
+
+button:focus {
+    outline: none
+}
+
+input, select, textarea {
+    display: block;
+    width: 100%;
+    outline: none;
+    caret-color: $main-color;
+}
+
+input[type="search"] {
+    &::-webkit-search-cancel-button {
+        cursor: pointer;
+        filter: invert(.5);
+    }
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+hr {
+    border: 1px solid #E1E1E1;
+}
+
+.container-lg {
+    --bs-gutter-x: 32px;
+}
+
+
+@each $gap in 4, 6, 8, 10, 12, 16, 20, 24, 32, 64 {
+    .gap-#{$gap} {
+        gap: #{$gap}px;
+    }
+}
+
+.modal-backdrop {
+    display: none
+}
+
+#layout-box {
+    height: calc(100vh - 82px);
+    min-height: 350px;
+    display: grid;
+    grid-template-columns: 235px 1fr;
+
+    @media(max-width: 767px) {
+        grid-template-columns: 0 1fr;
+
+        &.show-menu {
+            grid-template-columns: 1fr 0;
+
+            .dashboard-menu {
+                width: 100%;
+            }
+        }
+    }
+
+    @media(max-width: 575px) {
+        height: calc(100vh - 66px);
+    }
+}
+
+#page-content {
+    padding: 32px 24px 0 0;
+    @include srcolling-section(100%);
+
+    @media(max-width: 767px) {
+        padding: 24px 0 0 0
+    }
+}
+
+/*********************************************************************
+************************** Style to Golden ***************************
+*********************************************************************/
+
+/***************** Start style components *******************/
+
+
+/* section-heading Component */
+.section-heading {
+    @include font-color(16px, 600, 30px, $black-color);
+    margin-bottom: 12px
+}
+
+/* main-button Component */
+.main-button {
+    @include font-color(14px, 500, 26px, white);
+    background-color: $main-color;
+    padding: 7px 30px;
+    border: 1px solid $main-color;
+    border-radius: 8px;
+    transition: $main-transition;
+    cursor: pointer;
+    @include flex(6px);
+
+    @media(max-width: 1199px) {
+        padding: 6px 16px;
+        font-size: 14px;
+    }
+
+    svg {
+        font-size: 12px;
+    }
+
+    &:hover {
+        background-color: transparent;
+        color: $main-color;
+    }
+}
+
+/* main-button Component */
+.second-button {
+    @include font-color(14px, 600, 26px, white);
+    @include flex(8px);
+    justify-content: center;
+    background-color: $main-color;
+    border: 2px solid $main-color;
+    padding: 13px 30px;
+    border-radius: 8px;
+    transition: $main-transition;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+        background-color: transparent;
+        color: $main-color;
+    }
+}
+
+/* main-select Component */
+.main-select {
+    @include font-color(12px, 400, 23px, $black-color);
+    padding: 3px 6;
+    box-shadow: none;
+    border-radius: 100px;
+    border: 1px solid #D6D6D6;
+    width: fit-content;
+    cursor: pointer;
+    
+    &:focus {
+        box-shadow: none;
+        border: 1px solid #D6D6D6;
+    }
+}
+
+/* main-select Component */
+.second-select {
+    @include font-color(14px, 400, 26px, $black-color);
+    padding: 12px 16px;
+    box-shadow: none;
+    border-radius: 8px;
+    border: 1px solid #D6D6D6;
+    width: 100%;
+    cursor: pointer;
+    @include flex(16px);
+    justify-content: space-between;
+    
+    &:focus {
+        box-shadow: none;
+        border: 1px solid #D6D6D6;
+    }
+}
+
+/* main-dropdown Component */
+.main-dropdown { 
+    position: relative;
+    button {
+        @include flex(24px);
+        @include font-color(12px, 400, 22px, $black-color);
+        border: 1px solid #D6D6D6;
+        border-radius: 100px;
+        padding: 8px 16px;
+
+        svg {
+            font-size: 12px;
+            color: $main-color;
+            transition: $main-transition;
+        }
+
+        &.show svg {
+            transform: rotate(180deg);
+        }
+    }
+
+    .dropdown-menu {
+        width: 250px;
+        right: auto;
+        margin-top: 0;
+        padding: 12px 16px;
+        box-shadow: 0px 3px 6px #00000029;
+        border-radius: 16px;
+
+        .dropdown-item {
+            @include font-color(16px, 400, 27px, $black-color);
+            @include flex(12px);
+            justify-content: space-between;
+            transition: $main-transition;
+            cursor: pointer;
+
+            svg {
+                font-size: 16px;
+                color: $text-color;
+                transition: $main-transition;
+            }
+
+            &:hover {
+                background-color: transparent;
+                color: $second-color;
+
+                svg {
+                    color: $second-color
+                }
+            }
+        }
+
+        hr {
+            margin: 12px 0;
+        }
+    }
+}
+
+/* accordion Component */
+.main-accordion {
+    max-width: 700px;
+    margin: auto;
+
+    .accordion-item {
+        border: 1px solid #ECECEC;
+        border-radius: 8px;
+        padding: 0 24px;
+
+        &:not(:last-child) {
+            margin-bottom: 16px;
+        }
+    }
+
+    .accordion-header {
+        width: 100%;
+        @include font-color(14px, 400, 26px, $black-color);
+        display: flex;
+        gap: 32px;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 0;
+        cursor: pointer;
+
+        svg {
+            font-size: 14px;
+            transition: $main-transition;
+        }
+
+        &:not(.collapsed) {
+
+            border-bottom: 1px solid #ECECEC;;
+
+            svg {
+                transform: rotate(180deg);
+                color: $text-color
+            }
+        }
+    }
+
+    .accordion-body {
+        padding: 16px 0;
+
+        p {
+            @include font-color(14px, 400, 26px, $text-color);
+
+            @media(max-width: 575px) {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+/* options-dropdown component */
+.options-dropdown {
+    background-color: white;
+    width: 300px;
+    padding-top: 24px; 
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 24px;
+
+    .options-header {
+        @include flex(12px);
+        justify-content: unset;
+        padding: 0 12px;
+        margin-bottom: 20px;
+
+        .btn-close {
+            margin: 0; 
+            padding: 0;  
+            width: 20px;
+            height: 20px;
+            background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e") center/24px auto no-repeat;
+            opacity: 1;
+            transition: $main-transition;
+            box-shadow: none;
+
+            &:hover {
+                opacity: .5;
+            }
+        }
+
+        h3 {
+            @include font-color(18px, 600, 32px, $black-color);
+            flex-grow: 1;
+        }
+
+        .header-box {
+            @include flex(32px);
+            justify-content: space-between;
+            flex-grow: 1;
+
+            #reset_price {
+                @include font-color(14px, 600, 26px, $second-color);
+                text-decoration: underline;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    
+    .options-body {
+        @include srcolling-section(auto);
+        max-height: 225px;
+
+        .dropdown-item {
+            @include flex(12px);
+            transition: $main-transition;
+            padding: 5px 12px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #ECECEC;
+            }
+
+            &:not(:last-child) {
+                margin-bottom: 12px;
+            }
+    
+            .icon {
+                @include center;
+                width: 32px;
+                height: 32px;
+                background-color: #ECECEC;
+                border-radius: 50%;
+    
+                svg {
+                    font-size: 16px;
+                    color: $text-color
+                }
+            }
+    
+            h4 {
+                @include font-color(14px, 600, 26px, $black-color);
+            }
+        }
+
+
+        .form-price {
+            padding: 16px;
+            padding-top: 0;
+
+            .range-feiled {
+                margin-bottom: 16px;
+
+                input[type="range"] {
+                    appearance: none;
+                    background: transparent;
+                    cursor: pointer;
+                    width: 100%;
+                    outline: none;
+    
+                    &::-webkit-slider-runnable-track {
+                        background-color: #ECECEC;
+                        border-radius: 100px;
+                        height: 4px;  
+                    }
+
+                    &::-moz-range-track {
+                        background-color: #ECECEC;
+                        border-radius: 100px;
+                        height: 4px;   
+                    }
+
+                    &::-webkit-slider-thumb {
+                        appearance: none;
+                        margin-top: -6px;
+                        background-color: $main-color;
+                        height: 16px;
+                        width: 16px;
+                        border-radius: 50%;
+                    }
+                        
+                    &::-moz-range-thumb {
+                        border: none; 
+                        border-radius: 50%;
+                        background-color: $main-color;
+                        height: 16px;
+                        width: 16px;
+                    }                
+                }
+
+                .text {
+                    @include flex(16px);
+                    justify-content: space-between;
+
+                    .number {
+                        @include font-color(14px, 600, 26px, $black-color)
+                    }
+
+                    .currency {
+                        @include font-color(12px, 400, 23px, $text-color)
+                    }
+                }
+                
+            }
+
+            .inputs-feiled {
+                @include flex(16px);
+
+                input {
+                    @include font-color(14px, 600, 26px, $black-color);
+                    width: 100%;
+                    display: block;
+                    outline: none;
+                    border: 1px solid #D6D6D6;
+                    border-radius: 8px;
+                    padding: 6px 12px;
+                    direction: rtl;
+                }
+            }
+        }
+    }
+}
+
+/* back-home Component */
+.back-home {
+    @include font-color(12px, 400, 22px, $black-color);
+    border: 1px solid $main-color;
+    border-radius: 100px;
+    @include flex(10px);
+    padding: 8px 16px;
+    transition: $main-transition;
+
+    &:hover {
+        background-color: $main-color;
+        color: white;
+    }
+
+    @media (max-width: 575px) {
+        display: none;
+    }
+}
+
+/* notifications-items components */
+
+.notifications-items  {
+    max-height: 320px;
+    @include srcolling-section(auto);
+    
+    a.item {
+        display: block;
+        padding: 8px 16px;
+        transition: $main-transition;
+        
+        &:hover {
+            background-color: #F1F1F1;
+        }
+
+        &.new {
+            position: relative;
+            padding-left: 48px !important;
+            
+            &:before {
+                content: "";
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background-color: $second-color;
+                position: absolute;
+                top: 16px;
+                left: 16px;
+            }
+        }
+    }
+
+    
+    .notification-title {
+        @include font-color(14px, 500, 24px, $black-color);
+        margin-bottom: 2px;
+    }
+
+    .time {
+        @include font-color(12px, 400, 24px, $text-color);
+    }
+}
+
+.notifications-section .notifications-items {
+    max-height: calc(100vh - 82px - 85px);
+    min-height: 320px;
+    max-width: 700px;
+
+    @media(max-width: 575px) {
+        max-height: calc(100vh - 66px - 70px);
+    }
+
+    .item {
+        padding: 12px 16px;
+        border-bottom: 1px solid #F1F1F1;
+        transition: $main-transition;
+
+        &:hover {
+            background-color: #F1F1F1;
+        }
+    }
+}
+
+/* message-items components */
+.messages-items {
+    max-height: 320px;
+    @include srcolling-section(auto);
+
+    .item {
+        display: flex;
+        gap: 8px;
+        padding: 8px 16px;
+        transition: $main-transition;
+        align-items: center;
+        
+        &:hover {
+            background-color: #F1F1F1;
+        }
+    }
+    
+    .image img {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .text {
+        flex-grow: 1;
+        width: calc(100% - 64px)
+    }
+
+    .character-name {
+        @include font-color(14px, 600, 24px, $black-color);
+        margin-bottom: 2px;
+    }
+
+    .time {
+        @include font-color(10px, 400, 19px, $text-color);
+    }
+
+    .badge {
+        @include font-color(10px, 400, 24px, white);
+        background-color: $main-color;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+        margin-right: auto;
+    }
+
+    .message-text {
+        @include font-color(10px, 500, 19px, $black-color);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 100%
+    }
+}
+
+/* popup component */
+.main-popup {
+    background-color: #10101033;
+
+    .modal-dialog  {
+        width: 375px;
+        max-width: calc(100% - 32px);
+
+        @media(max-width: 575px) {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    .modal-content {
+        border-radius: 24px;
+        padding: 40px 32px;
+
+        @media(max-width: 575px) {
+            padding: 32px 24px;
+        }
+    }
+
+    .modal-header {
+        padding: 0;
+        border: none;
+        justify-content: unset;
+        gap: 8px;
+        
+        .btn-close {
+            margin: 0; 
+            padding: 0;  
+            width: 20px;
+            height: 20px;
+            background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e") center/24px auto no-repeat;
+            opacity: 1;
+            transition: $main-transition;
+
+            &:hover {
+                opacity: .5;
+            }
+        }
+
+        .modal-title {
+            @include font-color(17px, 600, 32px, $black-color);
+            flex-grow: 1;
+            text-align: center;
+        }
+    }
+
+    .modal-body {
+        padding: 0;
+        padding-top: 24px;
+
+        .modal-description {
+            @include font-color(14px, 400, 26px, $text-color);
+            margin-bottom: 24px;
+            text-align: center;
+        }
+    }
+
+    form.popup-form {
+        .inputs {
+            margin-bottom: 32px;
+
+            @media(max-width: 575px) {
+                margin-bottom: 24px;
+            }
+
+        }
+        
+        .feiled  {
+
+            &:not(:last-child) {
+                margin-bottom: 16px
+            }
+
+            label {
+                @include font-color(12px, 400, 23px, $black-color);
+                margin-bottom:4px 
+            }
+
+            input,
+            textarea {
+                @include font-color(14px, 400, 26px, $black-color);
+                display: block;
+                width: 100%;
+                outline: none;
+                border: 1px solid #D6D6D6;
+                border-radius: 8px;
+                padding: 12px 8px;
+                direction: rtl;
+                @include input-number;
+            }
+
+            .input-button {
+                border-radius: 8px;
+            }
+        }
+    }
+}
+
+/* search component */
+.main-search {
+    padding-bottom: 24px;
+    position: sticky;
+    background-color: white;
+    top: 65px;
+    left: 0;
+    z-index: 1;
+    @include flex(6px);
+
+    @media(max-width: 575px) {
+        padding-bottom: 16px;
+        top: 57px
+    }
+
+    .search-form {
+        width: 350px;
+        max-width: 100%;
+        background-color: #ECECEC;
+        border-radius: 100px;
+        padding: 8px 12px;
+        @include flex(4px);
+
+        button[type="submit"] {
+            width: 24px;
+            height: 24px;
+            @include center;
+
+            svg {
+                font-size: 18px;
+                color: $text-color;
+                transition: $main-transition;
+            }
+        }
+
+        input {
+            @include font-color(12px, 400, 23px, $black-color);
+            background-color: transparent;
+            border: none;
+            outline: none;
+        }
+    }
+
+    .filter {
+        .filter-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #ECECEC;
+            transition: $main-transition;
+
+            &:hover {
+                background-color: #D6D6D6;
+            }
+
+            svg {
+                color: $black-color;
+                font-size: 18px;
+            }
+        }
+
+        .main-popup {
+            .modal-dialog {
+                width: 400px;
+            }
+
+            .filter-form {
+
+                .fields {
+                    @include flex(8px);
+                    flex-wrap: wrap;
+                    margin-bottom: 16px;
+
+                    input[type="radio"] {
+                        display: none;
+                    }
+
+                    label {
+                        @include font-color(12px, 400, 23px, $black-color);
+                        padding: 8px 24px;
+                        border: 1px solid #D6D6D6;
+                        border-radius: 100px;
+                        transition: $main-transition;
+                        display: block;
+                        white-space: nowrap;
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: $main-color;
+                            border-color: $main-color;
+                            color: white;
+                        }
+                    }
+
+                    input[type="radio"]:checked + label {
+                        background-color: $main-color;
+                        border-color: $main-color;
+                        color: white;
+                    }
+                }
+
+                .actions {
+                    @include flex(0);
+                    margin-top: 40px;
+
+                    .second-button {
+                        width: 50%;
+                        min-width: fit-content;
+                    }
+
+                    button[type="reset"] {
+                        @include font-color(14px, 600, 26px, $black-color);
+                        margin: auto;
+                        transition: $main-transition;
+
+                        &:hover {
+                            color: $second-color
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* aside section component */
+.special-aside {
+    background: linear-gradient(-130deg, #E30D73 0%, #462777 100%) 0% 0% no-repeat padding-box;
+    border-radius: 16px;
+    padding: 24px 16px;
+    color: white;
+
+    @media (min-width: 992px) {
+        position: sticky;
+        top: 65px;
+        left: 0;
+        z-index: 1;
+    }
+
+    .second-button {
+        background-color: white;
+        border-color: white;
+        color: $main-color;
+        max-width: 350px;
+        margin: auto;
+
+        &:hover {
+            background-color: transparent;
+            color: white
+        }
+    }
+
+    h2 {
+        @include font(16px, 500, 30px);
+        margin-bottom: 16px;
+        text-align: center;
+    }
+    
+    p {
+        @include font(17px, 400, 32px);
+        margin-bottom: 8px;
+        text-align: center;
+        color: #ECECEC
+    }
+
+    p.price  {
+        @include font(14px, 400, 26px);
+        color: #ECECEC;
+        @include flex(4px);
+        justify-content: center;
+
+        .number {
+            @include font(20px, 500, 37px);
+            color: white
+        }
+
+        .currency {
+            @include font(10px, 400, 19px);
+        }
+    }
+
+    form {
+        margin-bottom: 24px;
+        
+        label {
+            @include font-color(12px, 400, 23px, white);
+            margin-bottom: 2px;
+        }
+
+        .dropdown {
+            .input-button {
+                width: 100%;
+                background-color: white;
+                border-radius: 8px;
+                padding: 16px;
+                @include flex(32px);
+                justify-content: space-between;
+                @include font-color(14px, 600, 26px, $black-color);
+
+                svg {
+                    font: 14px;
+                    color: $text-color
+                }
+            }
+        }
+    }
+}
+
+/* date-picker-button component */
+.time-picker-button,
+.date-picker-button {
+    @include flex(12px);
+    @include font-color(14px, 600, 26px, $text-color);
+    width: 100%;
+    border: 1px solid #D6D6D6;
+    border-radius: 8px;
+    padding: 14PX;
+
+    svg {
+        font-size: 17px;
+        color: $black-color;
+    }
+}
+
+
+/***************** End style components ********************/
+
+
+/*********************** Start style Header *************************/
+
+#header {
+    box-shadow: 0px 2px 4px #00000029;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 100;
+
+    .navbar {
+        gap: 48px;
+        justify-content: space-between;
+
+        @media(max-width: 1199px) {
+            gap: 16px
+        }
+
+        .navbar-brand img {
+            height: 56px;
+
+            @media(max-width: 575px) {
+                height: 40px;
+            }
+        }
+
+        .navbar-toggler {
+            border-radius: 0;
+            border: none;
+            box-shadow: none;
+            font-size: 24px;
+            color: $main-color
+        }
+
+        .offcanvas-lg {
+            flex-grow: 0;
+            gap: 88px;
+    
+            @media(max-width: 991px) {
+                right: auto;
+                padding-bottom: 32px;
+                
+
+                &.show {
+                    width: 50%;
+        
+                    @media(max-width: 767px) {
+                        width: 60%;
+                    }
+            
+                    @media(max-width: 575px) {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        
+        .navbar-nav {
+            column-gap: 24px;
+            align-items: center;
+    
+            @media (max-width: 1200px) {
+                column-gap: 12px
+            }
+
+            @media (max-width: 991px) {
+                align-items: stretch;
+            }
+
+            .nav-link {
+                @include font-color(16px, 500, 30px, $text-color);
+                transition: $main-transition;
+                position: relative;
+
+                &:hover {
+                    color: $second-color
+                }
+                
+                &.active {
+                    color: $second-color;
+
+                    &:after {
+                        content: "";
+                        width: 100%;
+                        height: 2px;
+                        background-color: $second-color;
+                        position: absolute;
+                        left: 0;
+                        bottom: -28px;
+                    }
+                }
+
+                @media(max-width: 991px) {
+                    padding: 12px 32px;
+                    text-align: center;
+
+                    &:after {
+                        display: none;
+                    }
+
+                    &.active,
+                    &:hover {
+                        color: $second-color
+                    }
+                }
+
+            }
+
+            li:not(:last-child) .nav-link {
+                @media(max-width: 991px) {
+                    box-shadow: 0px 1px 1px rgb(0 0 0 / 16%);
+                }
+            }
+        }
+
+        .notification,
+        .message {
+
+            button {
+                cursor: pointer;
+                position: relative;
+
+                svg {
+                    width: 20px;
+                    height: 20px;
+                    fill: #ECECEC;
+                    transition: $main-transition;
+                }
+
+                &.show svg {
+                    fill: $main-color
+                }
+            }
+
+            &.new button::after {
+                content: "";
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background-color: $second-color;
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+
+            .dropdown-menu {
+                width: 375px;
+                max-width: 100%;
+                right: auto;
+                left: 0;
+                box-shadow: 0px 3px 6px #00000029;
+                border-radius: 16px;
+                border: none;
+                padding: 0;
+                header {
+                    @include flex(24px);
+                    justify-content: space-between;
+                    padding: 20px 16px 12px;
+
+                    h3 {
+                        @include font-color(17px, 600, 32px, $black-color);
+                    }
+
+                    .veiw-all {
+                        @include flex(12px);
+                        @include font-color(14px, 500, 26px, $second-color);
+                        transition: $main-transition;
+
+                        &:hover {
+                            opacity: .7;
+                        }
+                    }
+                }
+            }
+        }
+       
+        ul.languges {
+
+            @include font-color(12px, 500, 24px, $text-color);
+
+            li:first-child {
+                position: relative;
+
+                &::after {
+                    content: "";
+                    width: 2px;
+                    height: 20px;
+                    background-color: $black-color;
+                    position: absolute;
+                    top: calc(50% - 10px);
+                    left: -9px;
+                }
+            }
+            
+            a {
+                color: $black-color;
+                transition: $main-transition;
+
+                &:hover {
+                    color: $second-color
+                }
+            }
+
+        }
+
+        .main-dropdown {
+            @media (min-width: 992px) {
+                position: unset;
+            }
+
+            .dropdown-menu {
+                width: 250px;
+                right: auto;
+
+                @media (max-width: 991px) {
+                    width: 200px;
+                    bottom: auto;
+                    top: -6px;
+                    left: 50%;
+                    transform: translate(-50%, -100%);
+                }
+            }
+        }
+    }
+}
+
+/*********************** End style Header ***************************/
+
+
+/*********************** Start style main menu *************************/
+
+.dashboard-menu {
+    @include srcolling-section(100%);
+    box-shadow: -3px 2px 3px #00000029;
+    background-color: white;
+    position: relative;
+    transition: .7s;
+
+    @media(max-width: 767px) {
+        box-shadow: none;
+        width: 0;
+    }
+
+    ul.main-menu {
+        padding: 36px 0 12px 12px;
+        display: grid;
+        gap: 2px;
+
+        .menu-link {
+            @include font-color(16px, 400, 30px, $black-color);
+            padding: 14px 16px;
+            @include flex(10px);
+            border-radius: 8px;
+            transition: $main-transition;
+
+            svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            &:hover,
+            &.active {
+                background-color: $main-color;
+                color: white
+            }
+
+            .badge {
+                font-size: 12px;
+                background-color: $second-color;
+                width: 20px;
+                height: 20px;
+                @include center;
+                border-radius: 50%;
+                margin-right: auto;
+            }
+        }
+    }
+
+    ul.submenu {
+        padding-right: 17px;
+        margin-right: 24px;
+        border-right: 2px solid var(--main-color);
+        list-style: disc;
+
+        .menu-link {
+            @include font-color(14px, 5, 26px, $black-color);
+            padding: 6px 0;
+
+            &:hover {
+                background-color: unset;
+                color: $text-color
+            }
+        }
+    }
+}
+
+/*********************** End style main menu ***************************/
+
+/********************* Start style account sales ***********************/
+header.second-menu {
+    background-color: white;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    padding-top: 32px;
+    padding-bottom: 24px;
+    transform: translateY(-32px);
+    margin-top: -32px;
+    @include flex(16px);
+
+    @media(max-width: 575px) {
+        padding-bottom: 16px;
+    }
+
+    .main-menu-toggle {
+        cursor: pointer;
+        transition: $main-transition;
+        padding: 0 8px;
+
+        @media(min-width: 768px) {
+            display: none;
+        }
+
+        &:hover {
+            transform: translateX(-8px);
+        }
+
+        svg {
+            font-size: 24px;
+            color: $main-color
+        }
+    }
+
+    .menu {
+        flex-grow: 1;
+        @include flex(16px);
+        min-height: fit-content;
+        overflow-x: auto;
+        max-width: 100%;
+        -ms-overflow-style: none; 
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        .menu-link {
+            @include font-color(12px, 400, 23px, $black-color);
+            padding: 8px 16px;
+            border: 1px solid #D6D6D6;
+            border-radius: 100px;
+            transition: $main-transition;
+            display: block;
+            white-space: nowrap;
+
+            &.active,
+            &:hover {
+                background-color: $main-color;
+                border-color: $main-color;
+                color: white
+            }
+        }
+    }
+
+    .box {
+        flex-grow: 1;
+        @include flex(24px);
+        justify-content: space-between
+    }
+
+    h1.title-page {
+        @include font-color(21px, 400, 40px, $black-color);
+    }
+}
+/********************* End style account sales *************************/
+
+/*********************************************************************
+********************* Style account summary page  ********************
+*********************************************************************/
+
+/********************* Start style Brief summary ***********************/
+#page-content.account-summary section.brief-summary {
+    margin-bottom: 32px;
+
+    .box {
+        display: grid;
+        grid-template-columns: repeat(6, calc((100% - 80px) / 6));
+        gap: 16px;
+
+        @media(max-width: 1199px) {
+            grid-template-columns: repeat(6, calc((100% - 40px) / 6));
+            gap: 8px;
+        }
+
+        @media(max-width: 991px) {
+            grid-template-columns: repeat(3, calc((100% - 48px) / 3));
+            gap: 16px;
+        }
+
+        @media(max-width: 575px) {
+            grid-template-columns: repeat(3, calc((100% - 16px) / 3));
+            gap: 8px;
+        }
+    }
+
+    .info {
+        background-color: #F5F5F5;
+        border-radius: 12px;
+        padding: 24px 12px;
+        text-align: center;
+        display: grid;
+        align-content: space-between;
+
+        @media(max-width: 1199px) {
+            padding: 16px 8px;
+        }
+
+        @media(max-width: 575px) {
+            padding: 12px 2px;
+            border-radius: 8px;
+        }
+
+        h3 {
+            @include font-color(14px, 600, 26px, $black-color);
+            margin-bottom: 4px;
+
+            @media(max-width: 1199px) {
+                font-size: 12px;
+            }
+
+            @media(max-width: 991px) {
+                font-size: 14px;
+            }
+
+            @media(max-width: 575px) {
+                font-size: 12px;
+            }
+        }
+
+        p {
+            @include font-color(21px, 600, 39px, $main-color);
+
+            @media(max-width: 575px) {
+                font-size: 18px;
+                line-height: 32px;
+            }
+        }
+    }
+}
+/********************* End style Brief summary *************************/
+
+/********************* Start style account sales ***********************/
+#page-content.account-summary .account-sales {
+    margin: 32px 0 ;
+
+    .box {
+        display: grid;
+        grid-template-columns: calc(66.66% - 8px) calc(33.333% - 8px);
+        gap: 16px;
+
+        @media (max-width: 1199px) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media (max-width: 991px) {
+            gap: 24px;
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+
+        header {
+            @include flex(24px);
+            justify-content: space-between;
+            margin-bottom: 12px;
+
+            .dropdown-menu {
+                width: auto;
+            }
+        }
+
+        .graph {
+            border: 1px solid #D6D6D6;
+            border-radius: 12px;
+            padding: 16px;
+            flex-grow: 1;
+
+            #chartContainer {
+                width: 100% !important;
+                min-height: 180px;
+            }
+        }
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: flex-end;
+
+        > section {
+            @include flex(16px);
+            justify-content: space-between;
+            padding: 8px 12px;
+            border-radius: 12px;
+            min-height: 80px;
+
+            .arrow {
+                width: 16px;
+                height: 16px;
+                @include center;
+
+                svg {
+                    font-size: 12px;
+                    color: $main-color
+                }
+            }
+        }
+
+        .my-points {
+            background-color: #F5F5F5;
+            padding: 12px;
+
+            .text {
+                h3 {
+                    @include flex(10px);
+                    @include font-color(16px, 500, 30px, $main-color);
+
+                    .icon {
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 50%;
+                        @include center;
+                        background-color: $main-color;
+
+                        svg {
+                            color: white;
+                            font-size: 10px
+                        }
+                    }
+                }
+
+                a {
+                    @include flex(6px);
+                    @include font-color(10px, 600, 19px, $text-color);
+                    text-decoration: underline;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+
+                    .icon {
+                        width: 12px;
+                        height: 12px;
+                        border-radius: 50%;
+                        @include center;
+                        background-color: $text-color;
+
+                        svg {
+                            color: white;
+                            font-size: 8px
+                        }
+                    }
+                }
+            }
+
+            .points {
+                @include font-color(24px, 500, 45px, $black-color);
+            }
+        }
+
+        .performance-report {
+            border: 1px solid #D6D6D6;
+            cursor: pointer;
+            transition: $main-transition;
+            @include flex(16px);
+            justify-content: space-between;
+            padding: 8px 12px;
+            border-radius: 12px;
+            min-height: 80px;
+
+            &:hover {
+                background-color: #F5F5F5
+            }
+
+            .arrow {
+                width: 16px;
+                height: 16px;
+                @include center;
+
+                svg {
+                    font-size: 12px;
+                    color: $main-color
+                }
+            }
+            
+            .text {
+                h3 {
+                    @include font-color(12px, 400, 23px, $black-color);
+                    margin-bottom: 4px;
+                }
+
+                .date {
+                    @include font-color(21px, 400, 39px, $main-color);
+                }
+            }
+        }
+
+        .upcoming-guests {
+            background-color: $main-color;
+            color: white;
+            border: 1px solid $main-color;
+            transition: $main-transition;
+
+            &:hover {
+                background-color: transparent;
+                color: $main-color
+            }
+
+            > a {
+                width: 100%;
+                color: inherit;
+                @include flex(16px);
+                justify-content: space-between;
+            }
+
+            .guests-content {
+                @include flex(16px);
+
+                .icon {
+                    width: 24px;
+                    height: 24px;
+                    @include center;
+
+                    svg {
+                        font-size: 20px;
+                    }
+                }
+
+                .text {
+                    h3 {
+                        @include font(12px, 500, 23px);
+                        margin-bottom: 2px;
+                    }
+
+                    p {
+                        @include font(21px, 600, 39px);
+                    }
+                }
+            }
+
+            .arrow svg {
+                color: inherit
+            }
+        }
+
+        .main-popup {
+            .modal-dialog {
+                width: 600px;
+            }
+
+            .second-button {
+                max-width: 340px;
+                margin: auto;
+            }
+        } 
+    }
+    
+}
+/********************* End style account sales *************************/
+
+/********************* Start style Latest booking ***********************/
+#page-content.account-summary section.latest-bookings {
+    margin: 32px 0;
+
+    .booking {
+        display: flex;
+        // grid-template-columns: repeat(5, calc((100% - 64px) / 5));
+        gap: 16px;
+        padding: 18px 0;
+        transition: $main-transition;
+        border-radius: 8px;
+
+        @media(max-width: 575px) {
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            border: 1px solid #D6D6D6;
+
+            &:not(:last-child) {
+                margin-bottom: 8px;
+            }
+        } 
+
+        &:hover {
+            background-color: #F1F1F1;
+        }
+
+
+        
+        // @media(max-width: 1199px) {
+        //     grid-template-columns: repeat(6, calc((100% - 40px) / 6));
+        //     gap: 8px;
+        // }
+
+        // @media(max-width: 991px) {
+        //     grid-template-columns: repeat(3, calc((100% - 48px) / 3));
+        //     gap: 16px;
+        // }
+        
+        
+        li {
+            width: calc((100% - 64px) / 5);
+            text-align: center;
+            @include font-color(14px, 600, 26px, $black-color);
+            
+            @media(max-width: 575px) {
+                width: calc((100% - 32px) / 3);
+            }            
+            
+            &.date {
+                color: $text-color;
+                font-weight: 500;
+            }
+    
+            &.price {
+                @include flex(4px);
+                justify-content: center;
+
+                .number {
+                    @include font-color(16px, 600, 30px, $main-color);
+                }
+
+                .currency {
+                    @include font-color(10px, 400, 19px, $text-color);
+                }
+            }
+
+            &.status {
+                color: $main-color;
+                
+                &.canceled {
+                    color: $second-color
+                }
+            }
+        }
+
+    }
+}
+/********************* End style Latest booking *************************/
+
+
+/********************* Start style weekly reports ***********************/
+#page-content.account-summary .weekly-reports {
+    max-width: 500px;
+    margin-bottom: 24px;
+
+    .report {
+        padding: 15px 12px;
+        @include flex(16px);
+        justify-content: space-between;
+        transition: $main-transition;
+        color: $black-color;
+        
+        &:hover {
+            background-color: $main-color;
+            box-shadow: none;
+            border-radius: 8px;
+            color: white;
+
+            .icon svg {
+                color: white;
+            }
+        }
+
+        &:not(:last-of-type) {
+            box-shadow: 0 1px 1px #00000029;
+        }
+
+        .text {
+            @include flex(24px);
+
+            .title {
+                @include font(14px, 600, 26px);
+                
+                @media (max-width: 575px) {
+                    display: none;
+                }
+            }
+
+            .date {
+                @include font(14px, 400, 26px);
+            }
+        }
+
+        .icon svg {
+            font-size: 16px;
+            color: $text-color;
+            transition: $main-transition;
+        }
+    }
+}
+/********************* End style weekly reports *************************/
+
+/********************* Start style weekly reports report ***********************/
+#page-content.account-summary .weekly-reports-report {
+    max-width: 500px;
+    margin-bottom: 24px;
+
+    .report {
+        padding: 24px 0;
+
+        &:not(:last-child) {
+            box-shadow: 0 1px 1px #00000029;
+        }
+
+        &:first-child {padding-top   : 0}
+        &:last-child  {padding-bottom: 0}
+    }
+
+    .title {
+        @include font-color(16px, 600, 30px, $black-color);
+        @include flex(4px);
+        margin-bottom: 20px;
+
+        .notse {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: $second-color;
+            color: white;
+            flex-shrink: 0;
+            @include center;
+            @include font(10px, 400, 17px)
+        }
+    }
+
+    .box-between {
+        @include flex(32px);
+        justify-content: space-between;
+
+        &:not(:last-of-type) {
+            margin-bottom: 20px
+        }
+
+        h3 {
+            @include font-color(14px, 500, 26px, $black-color);
+        }
+
+        p {
+            @include font-color(14px, 400, 26px, $black-color);
+        }
+    }
+
+    .main-accordion {
+        .accordion-item {
+            padding:  0 12px;
+            background-color: #ECECEC;
+            border: none;
+
+            &:not(:last-child)  {
+                margin-bottom: 12px;
+            }
+            
+            .accordion-header {
+                border-bottom: none ;
+
+                .text {
+                    @include flex(12px);
+
+                    .icon {
+                        width: 32px;
+                        height: 32px;
+                        border-radius: 50%;
+                        background-color: white;
+                        @include center;
+
+                        svg {
+                            font-size: 20px;
+                            transform: unset;
+                        }
+
+                        &.good svg {
+                            color: #136616 !important
+                        }
+
+                        &.bad svg {
+                            color: $second-color !important
+                        }
+                    }
+                }
+            }
+
+            .accordion-collapse {
+                padding-bottom: 8px;
+            }
+
+            .accordion-body  {
+                background: white;
+                border-radius: 4px;
+                padding: 12px 8px;
+            }
+        }
+    }
+
+}
+/********************* End style weekly reports report *************************/
+
+
+/*********************************************************************
+********************* Style transactions pages  **********************
+*********************************************************************/
+
+/* transactions form commponent */
+#page-content.transactions form.transactions-form {
+    max-width: 350px;
+
+    .form-heading {
+        @include font-color(14px, 400, 26px, $text-color);
+        margin-bottom: 20px;
+    }
+
+    .field {
+        margin-bottom: 32px;
+        label {
+            @include font-color(12px, 400, 23px, $text-color);
+            margin-bottom: 2px;
+        }
+
+        input {
+            @include font-color(14px, 600, 26px, $black-color);
+            padding: 12px;
+            border: 1px solid #D6D6D6;
+            border-radius: 8px;
+            direction: rtl;
+            @include input-number
+        }
+    }
+
+    .field-box {
+        @include flex(12px);
+        margin-bottom: 16px;
+
+        label {
+            flex-grow: 1;
+            @include flex(12px);
+            justify-content: center;
+            border: 1px solid #D6D6D6;
+            border-radius: 8px;
+            padding: 16px;
+            cursor: pointer;
+
+            input[type=radio] {
+                box-shadow: none;
+                width: 16px;
+                height: 16px;
+                border: 1px solid #CCCCCC;
+                flex-shrink: 0;
+
+                &:checked {
+                    border: none;
+                    background-color: $main-color;
+                    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+                }
+            }
+
+            img {
+                max-width: 100%;
+                height: 24px;
+            }
+        }
+    }
+
+    .main-accordion {
+        .accordion-item {
+            margin-bottom: 24px;
+            padding: 0;
+            border-color: #D6D6D6;
+        }
+
+        .accordion-header {
+            border-bottom-color: #D6D6D6;
+            padding: 16px;
+            font-weight: 600;
+        }
+
+        .accordion-body {
+            padding: 0 16px;
+
+            .dropdown-item {
+                @include font-color(14px, 600, 26px, $black-color);
+                display: block;
+                padding: 16px 0;
+                transition: $main-transition;
+                cursor: pointer;
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid #D6D6D6;
+                }
+
+                &:hover {
+                    color: $text-color
+                }
+            }
+        }
+    }
+}
+
+/*************** Start style transactions transfers *****************/
+#page-content.transactions article.transactions-transfers {
+    margin-bottom: 24px;
+
+    .transfer {
+        @include dashboard-box;
+
+        .box {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+
+            @media(max-width: 991px) {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            @media(max-width: 575px) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            &:not(:last-child) {
+                margin-bottom: 20px
+            }
+        }
+
+        .text {
+            text-align: center;
+
+            h3 {
+                @include font-color(14px, 600, 26px, $black-color);
+                margin-bottom: 4px;
+            }
+
+            p {
+                @include font-color(14px, 600, 26px, $text-color);
+            }
+
+            .price {
+                @include flex(4px);
+                justify-content: center;
+
+                .number {
+                    @include font-color(16px, 600, 30px, $black-color);
+                }
+
+                .currency {
+                    @include font-color(10px, 400, 19px, $text-color);
+                }
+            }
+        }
+
+        .status {
+            display: block;
+            text-align: center;
+            @include font-color(14px, 600, 26px, #136616);
+
+            &.canceled {
+                color: $second-color
+            }
+
+            @media(max-width: 991px) {
+                position: absolute;
+                bottom: 12px;
+                left: 0;
+                width: 33.33%;
+            }
+
+            @media(max-width: 575px) {
+                width: 50%;
+            }
+        }
+
+        hr {
+            border: 1px solid #D6D6D6;
+            margin: 16px 0;
+        }
+    }
+}
+/*************** End style transactions transfers *******************/
+
+/*************** Start style transactions invoices *****************/
+#page-content.transactions article.transactions-invoices {
+    padding-bottom: 32px;
+    max-width: 400px;
+
+    .invoice {
+        border: 1px solid #D6D6D6;
+        border-radius: 8px;
+        padding: 12px;
+
+        &:not(:last-child) {
+            margin-bottom: 12px;
+        }
+
+        .box {
+            @include flex(12px);
+            justify-content: space-between;
+
+            &:not(:last-child) {
+                margin-bottom: 16px;
+            }
+        }
+
+        .text {
+            @include flex(4px);
+
+            @media (max-width: 420px) {
+                flex-direction: column;
+                width: 50%;
+            }
+
+            h4 {
+                @include font-color(14px, 600, 26px, $black-color);
+            }
+
+            p {
+                @include font-color(14px, 600, 26px, $text-color);
+            }
+
+            .price {
+                @include flex(4px);
+
+                .number {
+                    @include font-color(16px, 600, 30px, $black-color);
+                }
+
+                .currency {
+                    @include font-color(10px, 400, 19px, $text-color);
+                }
+            }
+        }
+
+        a.payment-inf {
+            @include flex(12px);
+            @include font-color(14px, 600, 25px, $main-color);
+            transition: $main-transition;
+
+            @media (max-width: 420px) {
+                width: 50%;
+                justify-content: center;
+            }
+
+            &:hover {
+                color: $second-color
+            }
+
+            svg {
+                font-size: 14px;
+            }
+        }
+    }
+}
+/*************** End style transactions invoices *******************/
+
+/*************** Start style transactions statements *****************/
+#page-content.transactions section.transactions-statements {
+    .layout {
+        display: grid;
+        grid-template-columns: 1fr 350px;
+        gap: 32px;
+
+        @media(max-width: 1199px) {
+            grid-template-columns: 1fr 280px;
+            gap: 24px
+        }
+
+        @media(max-width: 991px) {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 32px
+        }
+    }
+
+    .statements-container {
+        padding-bottom: 24px;
+        display: grid;
+        gap: 16px
+    }
+
+    .statement {
+        border: 1px solid #D6D6D6;
+        border-radius: 8px;
+        padding: 12px;
+
+        .text {
+            @include flex(6px);
+            margin-bottom: 8px;
+
+            @media (max-width: 575px) {
+                flex-direction: column;
+                margin-bottom: 12px;
+            }
+
+            h4 {
+                @include font-color(14px, 600, 26px, $black-color);
+                flex-shrink: 0
+            }
+
+            p {
+                @include font-color(14px, 600, 26px, $text-color);
+            }
+
+            .price {
+                @include flex(4px);
+
+                .number-amount {
+                    @include font-color(16px, 600, 30px, #136616);
+                }
+                
+                .number-balance {
+                    @include font-color(16px, 600, 30px, $main-color);
+                }
+
+                .currency {
+                    @include font-color(10px, 400, 19px, $text-color);
+                }
+            }
+        }
+
+        .box {
+            @include flex(12px);
+            justify-content: space-between;
+
+            .text {
+                margin-bottom: 0;
+                
+                @media (max-width: 575px) {
+                    flex-direction: row;
+                }
+            }
+        }
+
+    }
+
+    // .filter {
+    //     background: linear-gradient(-130deg, #E30D73 0%, #462777 100%) 0% 0% no-repeat padding-box;
+    //     border-radius: 16px;
+    //     padding: 24px 16px;
+    //     color: white;
+        
+    //     @media(min-width: 992px) {
+    //         position: sticky;
+    //         top: 65px;
+    //         left: 0;
+    //         z-index: 1;
+    //     }
+
+    //     h2 {
+    //         @include font(16px, 500, 30px);
+    //         margin-bottom: 16px;
+    //         text-align: center;
+    //     }
+        
+    //     p {
+    //         @include font(17px, 400, 32px);
+    //         margin-bottom: 8px;
+    //         text-align: center;
+    //         color: #ECECEC
+    //     }
+
+    //     p.price  {
+    //         @include font(14px, 400, 26px);
+    //         color: #ECECEC;
+    //         @include flex(4px);
+    //         justify-content: center;
+
+    //         .number {
+    //             @include font(20px, 500, 37px);
+    //             color: white
+    //         }
+
+    //         .currency {
+    //             @include font(10px, 400, 19px);
+    //         }
+    //     }
+
+    //     form {
+    //         margin-bottom: 24px;
+            
+    //         label {
+    //             @include font-color(12px, 400, 23px, white);
+    //             margin-bottom: 2px;
+    //         }
+
+    //         .dropdown {
+    //             .input-button {
+    //                 width: 100%;
+    //                 background-color: white;
+    //                 border-radius: 8px;
+    //                 padding: 16px;
+    //                 @include flex(32px);
+    //                 justify-content: space-between;
+    //                 @include font-color(14px, 600, 26px, $black-color);
+
+    //                 svg {
+    //                     font: 14px;
+    //                     color: $text-color
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+}
+/*************** End style transactions statements *******************/
+
+/*************** Start style accounts summary *****************/
+#page-content.transactions section.accounts-summary {
+
+    .field {
+        margin-bottom: 12px;
+    }
+    
+    .dropdown {
+        .input-button {
+            width: 100%;
+            background-color: white;
+            border: 1px solid #D6D6D6;
+            border-radius: 8px;
+            padding: 14px;
+            @include flex(16px);
+            @include font-color(14px, 600, 26px, $black-color);
+
+            svg {
+                font-size: 18px;
+                color: $black-color
+            }
+        }
+    }
+}
+/*************** End style accounts summary *******************/
+
+/*************** Start style transactions estate *****************/
+#page-content.transactions section.transactions-estate-filter {
+    @include flex(16px);
+    padding-bottom: 16px;
+    position: sticky;
+    background-color: white;
+    top: 65px;
+    left: 0;
+    z-index: 1;
+
+    @media(max-width: 575px) {
+        top: 57px
+    }
+
+    @media(max-width: 575px) {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px
+    }
+
+    .option {
+        
+        .input-button {
+            @include flex(24px);
+            padding: 8px 16px;
+            background-color: #ECECEC;
+            border-radius: 100px;
+            @include font-color(14px, 600, 26px, $main-color);
+
+            @media(max-width: 575px) {
+                padding: 6px 12px;
+                gap: 16px
+            }
+
+            svg {
+                font-size: 14px;
+                transition: $main-transition;
+            }
+
+            &.show svg {
+                transform: rotate(180deg);
+            }
+
+        }
+
+        .field {
+            padding: 0 12px 6px;
+
+            input {
+                @include font-color(14px, 600, 26px, $black-color);
+                padding: 12px;
+                border: 1px solid #D6D6D6;
+                border-radius: 8px;
+            }
+        }
+    }
+}
+
+#page-content.transactions section.transactions-estate-booking {
+    margin-bottom: 16px;
+    max-width: 350px;
+    > article:not(:last-child) {
+        margin-bottom: 24px
+    }
+
+    a.bookings {
+        @include flex(32px);
+        justify-content: space-between;
+        border: 1px solid #D6D6D6;
+        border-radius: 8px;
+        padding: 12px 16px;
+        @include font-color(14px, 600, 26px, $black-color);
+        margin-bottom: 2px;
+        transition: $main-transition;
+        margin-bottom: 12px;
+
+        svg {
+            color: $text-color;
+            font-size: 14px;
+        }
+
+        &:hover {
+            border-color: $main-color;
+            color: $main-color;
+
+            svg {
+                color: $main-color;
+            }
+        }
+
+    }
+
+    .box-between {
+        @include flex(24px);
+        justify-content: space-between;
+
+        &:not(:last-child) {
+            margin-bottom: 12px;
+        }
+    }
+
+    .label-heading {
+        @include font-color(12px, 400, 23px, $text-color);
+        margin-bottom: 2px;
+    }
+
+    h3.section-heading {
+        margin: 0;
+    }
+
+    h2.section-heading {
+        font-size: 17px;
+        margin-bottom: 16px;
+    }
+
+    .price-heading {
+        @include font-color(14px, 600, 26px, $text-color);
+    }
+
+    .price {
+        @include flex(4px);
+        .number {
+            @include font-color(14px, 600, 26px, $black-color);
+
+            &.negative {
+                color: $second-color
+            }
+
+            &.totale {
+                color: $main-color
+            }
+        }
+
+        .currency {
+            @include font-color(10px, 400, 19px, $text-color);
+        }
+    }
+}
+/*************** End style transactions estate *******************/
+
+/*************** Start style transactions estate bookings *****************/
+#page-content.transactions article.transactions-estate-bookings {
+    .estate-booking {
+        border: 1px solid #D6D6D6;
+        border-radius: 8px;
+        padding: 12px;
+
+        &:not(:last-child) {
+            margin-bottom: 16px;
+        }
+
+        .text {
+            @include flex(6px);
+
+            &:not(:last-child) {
+                margin-bottom: 6px;
+            }
+
+            @media (max-width: 420px) {
+                flex-direction: column;
+                gap: 4px;
+
+                &:not(:last-child) {
+                    margin-bottom: 12px;
+                }
+            }
+
+            h4 {
+                @include font-color(14px, 600, 26px, $black-color);
+                flex-shrink: 0
+            }
+
+            p {
+                @include font-color(14px, 600, 26px, $text-color);
+            }
+
+            .price {
+                @include flex(4px);
+
+                .number {
+                    @include font-color(16px, 600, 30px, $black-color);
+                }
+
+                .currency {
+                    @include font-color(10px, 400, 19px, $text-color);
+                }
+            }
+        }
+    }
+}
+/*************** End style transactions estate bookings *******************/
+
+/*************** Start style transactions estate booking *****************/
+#page-content.transactions section.transactions-estate-booking-box {
+    max-width: 700px;
+    border: 1px solid #D6D6D6;
+    border-radius: 8px;
+    padding: 16px 24px;
+    margin-bottom: 12px;
+
+    @media(max-width: 575px) {
+        padding: 12px;
+    }
+
+    .box {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+
+        &:not(:last-child) {
+            margin-bottom: 20px;
+        }    
+
+        @media(max-width: 991px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @media(max-width: 575px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 20px
+        }
+    }
+
+    .flex-box {
+        @include flex(0 24px);
+        flex-wrap: wrap;
+    }
+
+    .text {
+        text-align: center;
+
+        &.text-row {
+            text-align: unset;
+            margin-bottom: 4px;
+
+            h3 {
+                margin-bottom: 0;
+                display: inline;
+            }
+
+            p {
+                display: inline-flex
+            }
+        }
+
+        h3 {
+            @include font-color(14px, 600, 26px, $black-color);
+            margin-bottom: 4px;
+        }
+
+        p {
+            @include font-color(14px, 600, 26px, $text-color);
+        }
+
+        .price {
+            @include flex(4px);
+            justify-content: center;
+
+            .number {
+                @include font-color(16px, 600, 30px, $black-color);
+            }
+
+            .currency {
+                @include font-color(10px, 400, 19px, $text-color);
+            }
+        }
+    }
+
+    .status {
+        display: block;
+        text-align: center;
+        @include font-color(14px, 600, 26px, #136616);
+
+        &.canceled {
+            color: $second-color
+        }
+
+        @media(max-width: 991px) {
+            position: absolute;
+            bottom: 12px;
+            left: 0;
+            width: 33.33%;
+        }
+
+        @media(max-width: 575px) {
+            width: 50%;
+        }
+    }
+
+    hr {
+        border: 1px solid #D6D6D6;
+        margin: 16px 0;
+    }
+
+    .guest-info {
+        max-width: 380px;
+        display: flex;
+        gap: 12px;
+        justify-content: space-between;
+        margin-bottom: 32px;
+
+        .d-flex {
+            gap: 12px;
+        }
+
+        .image img {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .gust-name {
+            @include font-color(14px, 600, 26px, $black-color);
+            margin-bottom: 4px;
+        }
+
+        .status-gust {
+            @include font-color(14px, 600, 26px, #136616);
+            @include flex(4px);
+            flex-wrap: wrap;
+            justify-content: center;
+            text-align: center;
+
+            .icon {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background-color: #136616;
+                color: white;
+                @include center;
+                font-size: 8px;
+            }
+
+            &.canceled {
+                color: $second-color;
+
+                .icon {
+                    background-color: $second-color
+                }
+            }
+        }
+
+    }
+
+    .alert-text {
+        @include font-color(14px, 500, 26px, $black-color);
+        border-radius: 8px;
+        padding: 12px 8px;
+        background-color: #ECECEC;
+        margin-bottom: 24px;
+    }
+
+    .report-guest {
+        @include font-color(14px, 600, 26px, white);
+        background-color: var(--text-color);
+        width: 340px;
+        max-width: 100%;
+        padding: 15px;
+        text-align: center;
+        transition: var(--main-transition);
+        border-radius: 8px;
+        display: block;
+        margin: auto;
+
+        &:hover {
+            background-color: $main-color
+        }
+    }
+}
+/*************** End style transactions estate booking *******************/
+
+/*********************************************************************
+************************ Style prices pages  *************************
+*********************************************************************/
+
+/*************** Start style added-complexs-estate *****************/
+#page-content.prices .added-complexs-estate {
+    max-width: 550px;
+
+    .complex-box  {
+        @include dashboard-box;
+        padding: 12px 16px;
+
+        .section-heading {
+            margin-bottom: 4px;
+        }
+
+        .complex-location {
+            @include font-color(12px, 500, 23px, $text-color);
+            margin-bottom: 4px;
+        }
+
+        .estates-number {
+            @include font-color(14px, 500, 26px, $black-color);
+        }
+    }
+}
+/*************** End style added-complexs-estate *******************/
+
+/*************** Start style special-prices *****************/
+#page-content.prices .special-prices {
+    max-width: 530px;
+    margin-bottom: 24px;
+
+    .section-heading {
+        font-size: 17px;
+        font-weight: 500
+    }
+
+    .nav {
+        @include flex(20px);
+        justify-content: center;
+        
+        @media (max-width: 575px) {
+            flex-wrap: wrap;
+            gap: 12px
+        }
+
+        li {
+            width: calc((100% - 40px) / 3);
+            min-width: fit-content;
+            flex-grow: 1;
+        }
+
+        .nav-link {
+            text-align: center;
+            border: 1px solid #D6D6D6;
+            border-radius: 8px;
+            padding: 20px 12px;
+            display: grid;
+            gap: 10px;
+            transition: $main-transition;
+
+            &:hover {
+                border-color: $main-color;
+            }
+
+            .image img {
+                width: 28px
+            }
+
+            h4 {
+                @include font-color(14px, 600, 26px, $black-color);
+            }
+        }
+    }
+}
+/*************** End style special-prices *******************/
+
+/*************** Start style complex-prices *****************/
+#page-content.prices .complex-prices {
+    max-width: 530px;
+    margin-bottom: 24px;
+
+    h2.section-heading {
+        font-size: 17px;
+        font-weight: 500
+    }
+}
+
+#page-content.prices .estate-prices {
+    @include dashboard-box;
+    padding: 12px 16px;
+
+    .box {
+        display: flex;
+        gap: 16px 24px ;
+        justify-content: space-between;
+
+        @media (max-width: 575px) {       
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    }
+
+    .section-heading {
+        @media (max-width: 575px) {       
+            text-align: center;
+        }
+    }
+    
+    .text {
+        text-align: center;    
+
+        h4 {
+            @include font-color(14px, 500, 26px, $text-color);
+        }
+        
+        .price {
+            display: flex;
+            align-items: flex-end;
+            gap: 2px;
+            justify-content: center;
+
+            .number {
+                @include font-color(14px, 600, 26px, $main-color);
+            }
+
+            .currency {
+                @include font-color(10px, 400, 21px, $text-color);
+            }
+        }
+    }
+}
+/*************** End style complex-prices *******************/
+
+/*************** Start style prices layout  *****************/
+#page-content.prices .prices-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 32px;
+    margin-bottom: 24px;
+
+    @media(max-width: 1199px) {
+        grid-template-columns: 1fr 280px;
+        gap: 24px
+    }
+
+    @media(max-width: 991px) {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 32px
+    }
+
+    .estate-prices {
+
+        header {
+            display: flex;
+            gap: 16px;
+            justify-content: space-between;
+
+            .form-switch {
+                padding: 0;
+                padding-left: 56px;
+
+                input {
+                    float: left;
+                    height: 24px;
+                    width: 46px;
+                    margin-left: -56px;
+                    cursor: pointer;
+                    box-shadow: none;
+                    border: 2px solid $text-color;
+                    background-color: $text-color;
+                    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+                    background-position: left center;
+
+                    &:checked {
+                        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+                        background-position: right center;
+                        background-color: var(--main-color);
+                    }
+                }
+            }
+
+            .section-heading {
+                @include flex(16px);
+                margin-bottom: 8px;
+
+                @media(max-width: 575px) {
+                    display: unset;
+                    text-align: unset;
+                }
+
+                .time {
+                    @include font-color(14px, 400, 26px, $text-color)
+                } 
+            }
+        }
+
+        .content {
+            .section-heading {
+                font-size: 14px;
+                line-height: 26px
+            }
+
+            .box {
+                flex-wrap: wrap;
+                justify-content: unset;
+
+                @media(max-width: 991px) {
+                    justify-content: space-between;
+                }
+
+                @media(max-width: 575px) {
+                    justify-content: center;
+                }
+            }
+        }
+
+        .options {
+            @include flex(24px);
+            justify-content: center;
+            margin-top: 16px;
+
+            @media(max-width: 575px) {
+                gap: 12px
+            }
+
+            a {
+                @include font(12px, 500, 23px);
+                width: 130px;
+                max-width: 100%;
+                text-align: center;
+                padding: 7px 16px;
+                border-radius: 4px;
+                transition: $main-transition;
+
+                &.edit {
+                    background-color: #136616;
+                    color: white;
+
+                    &:hover {
+                        background-color: #136616b3
+                    }
+                }
+
+                &.remove {
+                    background-color: #ECECEC;
+                    color: $second-color;
+
+                    &:hover {
+                        background-color: #D6D6D6
+                    }
+                }
+            }
+        }
+    }
+} 
+/*************** End style prices layout  *******************/
+
+/*************** Start style add offer price  *****************/
+#page-content.prices .add-offer-price {
+    max-width: 500px;
+    margin-bottom: 24px;
+
+    .form-heading {
+        @include font-color(14px, 600, 26px, $black-color);
+        margin-bottom: 16px;
+    }
+
+    .input-field {
+        margin-bottom: 20px;
+
+        label {
+            @include font-color(12px, 400, 23px, $text-color);
+            margin-bottom: 2px
+        }
+
+        input:not([type="checkbox"]) {
+            @include font-color(14px, 600, 26px, $black-color);
+            border: 1px solid #D6D6D6;
+            border-radius: 8px;
+            padding: 14px 12px;
+            box-shadow: none;
+            direction: rtl;
+
+            &[type="number"] {
+                @include input-number;
+            }
+        }
+
+    }
+
+    .box-boolean {
+        @include flex(24px);
+
+        .checkbox-field:not(:last-child) {
+            margin-bottom: 0
+        }
+
+        .checkbox-field label {
+            font-weight: 600
+        }
+    }
+
+    .checkbox-field {
+        @include flex(8px);
+        
+        &:not(:last-child) {
+            margin-bottom: 12px;
+        }
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            box-shadow: none;
+            width: 16px;
+            height: 16px;
+            border: none;
+            cursor: pointer;
+            background-color: #ECECEC;
+
+            &:checked {
+                background-color: $main-color;
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+            }
+        }
+
+        label {
+            cursor: pointer;
+            @include font-color(14px, 500, 26px, $black-color)
+        }
+    }
+    
+    .price-field {
+        @include flex(12px);
+        justify-content: space-between;
+
+        &:not(:last-child) {
+            margin-bottom: 8px;
+        }
+
+        label {
+            cursor: pointer;
+            @include font-color(14px, 500, 26px, $black-color)
+        }
+
+        input[type="number"] {
+            width: 170px;
+            padding: 10px 12px
+        }
+    }
+
+    .holiday-price-field {
+        border: 1px solid #D6D6D6;
+        border-radius: 8px;
+        padding: 12px;
+
+        &:not(:last-child) {
+            margin-bottom: 12px;
+        }
+
+        .holiday-alert {
+            @include font-color(14px, 500, 26px, $second-color)
+        }
+
+        hr {
+            border: 2px solid #D6D6D6;
+            margin: 8px 0;
+        }
+
+        .day {
+            @include font-color(20px, 600, 37px, $black-color);
+        }
+        
+        .date {
+            color: $text-color;
+            font-weight: 500;
+        }
+    }
+
+    .second-button {
+        max-width: 340px;
+        margin: auto;
+        position: sticky;
+        bottom: 10px;
+        left: 0;
+    }
+
+    .holiday-fields {
+        @include flex(20px);
+        margin-bottom: 20px;
+
+        @media (max-width: 575px) {
+            @include flex(12px);
+            margin-bottom: 12px;
+        }
+
+        .checkbox-field {
+            @include font-color(14px, 600, 26px, $black-color);
+            margin: 0;
+            width: 100%;
+            border: 1px solid #D6D6D6;
+            border-radius: 8px;
+            padding: 14px 12px;
+            cursor: pointer;
+            transition: $main-transition;
+
+            &.active {
+                background-color: $main-color;
+                border-color: $main-color;
+                color: white;
+            }
+
+
+            input[type="radio"] {
+                background-color: transparent;
+                border: 1px solid #ECECEC;
+                transition: $main-transition;
+
+                &:checked {
+                    background-color: white;
+                    border-color: white;
+                    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%232C1D65' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+                }
+            }
+        }
+    }
+}
+/*************** End style add offer price  *******************/
+
+/*********************************************************************
+*********************** Style bookings pages  ************************
+*********************************************************************/
+
+/*************** Start style bookings-box *****************/
+#page-content.bookings .bookings-box .booking {
+    @include dashboard-box;
+    margin-bottom: 24px;
+
+    .box {
+        @include flex(8px);
+    }
+
+    .box-between  {
+        @include flex(16px);
+        justify-content: space-between;
+    }
+
+    .status {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #ECECEC;
+        @include center;
+        font-size: 20px;
+
+        &.confirmed {color: #136616}
+
+        &.canceled {color: $second-color}
+
+        &.continued {color: #1434CB}
+
+        &.finished {color: $main-color}
+
+        &.not-come {color: $text-color}
+    }
+
+    .text {
+        margin-bottom: 6px;
+
+        h3 {
+            @include font-color(14px, 600, 26px, $black-color);
+            margin-bottom: 0;
+            display: inline;
+        }
+
+        p {
+            display: inline;
+            @include font-color(14px, 600, 26px, $text-color);
+        }
+
+        .price {
+            display: inline-flex;
+            align-items: flex-end;
+            gap: 4px;
+
+            .number {
+                @include font-color(16px, 600, 30px, $black-color);
+            }
+
+            .currency {
+                @include font-color(10px, 400, 19px, $text-color);
+            }
+        }
+    }
+
+    .payment-info {
+        @include flex(8px);
+        @include font-color(14px, 600, 26px, $main-color);
+        transition: $main-transition;
+
+        &:hover {
+            color: $text-color
+        }
+    }
+}
+/*************** End style bookings-box *******************/
+
+/*************** Start style booking-info *****************/
+#page-content.bookings .booking-info {
+    margin-bottom: 24px;
+    display: grid;
+    grid-template-columns: 340px 340px;
+    justify-content: space-between;
+
+    @media (max-width: 1199px) {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px
+    }
+
+    @media (max-width: 991px) {
+        grid-template-columns: 400px;
+    }
+
+    @media (max-width: 575px) {
+        grid-template-columns: 100%;
+    }
+
+    .text {
+        margin-bottom: 6px;
+
+        &.text-between {
+            @include flex(32px);
+            justify-content: space-between
+        }
+
+        h3 {
+            @include font-color(14px, 600, 26px, $black-color);
+            display: inline;
+        }
+
+        p {
+            @include font-color(14px, 600, 26px, $text-color);
+            display: inline;
+        }
+
+        .price {
+            display: inline-flex;
+            align-items: flex-end;
+            gap: 4px;
+            justify-content: center;
+
+            .number {
+                @include font-color(16px, 600, 30px, $black-color);
+            }
+
+            .currency {
+                @include font-color(10px, 400, 19px, $text-color);
+            }
+        }
+    }
+
+    .guest-info {
+        max-width: 380px;
+        display: flex;
+        gap: 12px;
+        justify-content: space-between;
+        margin-bottom: 32px;
+
+        .d-flex {
+            gap: 12px;
+        }
+
+        .image img {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .gust-name {
+            @include font-color(14px, 600, 26px, $black-color);
+            margin-bottom: 4px;
+        }
+
+        .status-gust {
+            @include font-color(14px, 600, 26px, #136616);
+            @include flex(4px);
+            flex-wrap: wrap;
+            justify-content: center;
+            text-align: center;
+
+            .icon {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background-color: #136616;
+                color: white;
+                @include center;
+                font-size: 8px;
+            }
+
+            &.canceled {
+                color: $second-color;
+
+                .icon {
+                    background-color: $second-color
+                }
+            }
+        }
+
+    }
+
+    .alert-text {
+        @include font-color(14px, 500, 26px, $black-color);
+        border-radius: 8px;
+        padding: 12px 8px;
+        background-color: #ECECEC;
+        margin-bottom: 24px;
+    }
+
+    .report-guest {
+        @include font-color(14px, 600, 26px, white);
+        background-color: var(--text-color);
+        width: 340px;
+        max-width: 100%;
+        padding: 15px;
+        text-align: center;
+        transition: var(--main-transition);
+        border-radius: 8px;
+        display: block;
+        margin: auto;
+
+        &:hover {
+            background-color: $main-color
+        }
+    }
+}
+/*************** End style booking-info *******************/
+
+/*************** Start style payment-info *****************/
+#page-content.bookings .payment-info {
+    margin-bottom: 24px;
+    max-width: 500px;
+
+    .text {
+        margin-bottom: 16px;
+
+        &.text-between {
+            @include flex(32px);
+            justify-content: space-between
+        }
+
+        h3 {
+            @include font-color(14px, 500, 26px, $text-color);
+            display: inline;
+        }
+
+        p {
+            @include font-color(14px, 600, 26px, $black-color);
+            display: inline;
+        }
+
+        .price {
+            display: inline-flex;
+            align-items: flex-end;
+            gap: 2px;
+            justify-content: center;
+
+            .number {
+                @include font-color(14px, 600, 26px, $black-color);
+            }
+
+            .currency {
+                @include font-color(10px, 400, 19px, $text-color);
+            }
+        }
+    }
+
+    hr {
+        border: 1px solid #D6D6D6;
+        margin: 16px 0;
+    }
+
+    .second-button {
+        max-width: 340px;
+        margin: 24px auto 0;
+    }
+}
+/*************** End style booking-info *******************/
+
+
+
+
+
+
+
+
+
+/* message-items components */
+.messages-items {
+    max-height: 320px;
+    @include srcolling-section(auto);
+
+    .item {
+        display: flex;
+        gap: 8px;
+        padding: 8px 16px;
+        transition: $main-transition;
+        align-items: center;
+        
+        &:hover,
+        &.active {
+            background-color: #F1F1F1;
+        }
+    }
+    
+    .image img {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .text {
+        flex-grow: 1;
+        width: calc(100% - 64px)
+    }
+
+    .character-name {
+        @include font-color(14px, 600, 24px, $black-color);
+        margin-bottom: 2px;
+    }
+
+    .time {
+        @include font-color(10px, 400, 19px, $text-color);
+    }
+
+    .badge {
+        @include font-color(10px, 400, 24px, white);
+        background-color: $main-color;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+        margin-right: auto;
+    }
+
+    .message-text {
+        @include font-color(10px, 500, 19px, $black-color);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 100%
+    }
+}
+
+section.user-chat {
+
+    .box {
+        display: grid;
+        grid-template-columns: 350px 1fr;
+        grid-template-rows: 100%;
+        height: calc(100vh - 82px);
+        min-height: 300px;
+        transition: $main-transition;
+
+        @media(max-width: 767px) {
+            grid-template-columns: 100% 0;
+        }
+
+        @media (max-width: 575px) {
+            height: calc(100vh - 66px);
+        }
+    }
+
+    .persons-conversation {
+        transition: $main-transition;
+        position: relative;
+
+        .search {
+            padding: 32px 12px 24px 24px;
+            background-color: white;
+
+            @media(max-width: 767px) {
+                padding: 24px 12px 16px 64px;
+            }
+
+            form {
+                @include flex(8px);
+                width: 100%;
+                background-color: #ECECEC;
+                border-radius: 100px;
+                padding: 8px 12px;
+
+                img {
+                    width: 24px
+                }
+
+                input {
+                    @include font-color(14px, 400, 26px, $black-color);
+                    border: none;
+                    background-color: transparent;
+                }
+            }
+        }
+
+        .messages-items {
+            max-height: unset;
+            @include srcolling-section(calc(100% - 100px));
+        }
+
+        .hide-chat {
+            position: absolute;
+            top: 16px;
+            left: 0;
+            transform: translateX(-50%);
+            cursor: pointer;
+            z-index: 1;
+            transition: $main-transition;
+
+            @media(max-width: 767px) {
+                transform: translateX(8px);
+                top: 22px;
+            }
+            
+            @media(max-width: 575px) {
+                top: 29px
+            }
+
+            img {
+                width: 40px;
+                border-radius: 50%;
+                box-shadow: -2px 2px 4px #00000029;
+                transition: $main-transition;
+
+                @media (max-width: 575px) {
+                    width: 32px;
+                }
+            }
+        }
+    }
+
+    .open-conversation {
+        @include srcolling-section(100%);
+        box-shadow: 
+            -2px -2px 4px #00000029 inset,
+            2px 2px 4px #00000029 inset;
+        background-image: url("../../images/chat-background.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        .conversation-header {
+            // @include container-padding-left;
+            padding-left: 24px;
+            @include flex(24px);
+            justify-content: space-between;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            padding-right: 64px;
+            box-shadow: -2px 2px 4px #00000029, 2px 2px 4px #00000029 inset, -2px 0 4px #00000029 inset;
+            background-color: white;
+            position: sticky;
+            top: 0;
+            left: 0;
+
+            @media(max-width: 991px) {
+                padding-right: 48px;
+            }
+
+            .conversation-options {
+                @include flex(20px);
+
+                @media(max-width: 991px) {
+                    gap: 12px
+                }
+
+                @media (max-width: 575px) {
+                    gap: 6px
+                }
+
+                .options {
+                    .icon {
+                        width: 24px;
+                        height: 24px;
+                        text-align: center;
+                        cursor: pointer;
+
+                        svg {
+                            font-size: 20px
+                        }
+                    }
+
+                    .dropdown-menu {
+                        box-shadow: 0px 3px 6px #00000029;
+                        border-radius: 8px;
+                        border: none;
+                        padding: 0;
+                        
+                        .dropdown-item {
+                            @include flex(9px);
+                            padding: 12px;
+                            transition: $main-transition;
+                            cursor: pointer;
+
+                            &:hover {
+                                background-color: #ECECEC;
+                            }
+                            
+                            svg {
+                                color: $black-color;
+                                font-size: 18px;
+                            }
+                            
+                            h4 {
+                                @include font-color(14px, 400, 26px, $black-color);
+                            }
+                        }
+                    }
+                }
+
+                h2 {
+                    @include font-color(17px, 400, 32px, $black-color);
+
+                    @media (max-width: 575px) {
+                        font-size: 15px;
+                        line-height: 29px;
+                    }
+                }
+            }
+
+            .real-estate-chat {
+                @include flex(16px);
+
+                @media(max-width: 991px) {
+                    gap: 32px
+                }
+
+                @media (max-width: 575px) {
+                    gap: 20px
+                }
+
+                article {
+                    @include flex(12px);
+
+                    img {
+                        width: 90px;
+                        max-width: 100%;
+                        height: 56px;
+                        object-fit: cover;
+                        border-radius: 8px;
+
+                        @media (max-width: 575px) {
+                            width: 60px;
+                            height: 42px;
+                        }
+                    }
+
+                    h3 {
+                        @include font-color(14px, 500, 26px, $black-color);
+                        transition: $main-transition;
+
+                        @media(max-width: 991px) {
+                            display: none;
+                        }
+                    }
+                }
+
+                .icon svg {
+                    font-size: 16px;
+                    color: $black-color;
+                    transition: $main-transition;
+                }
+
+                &:hover {
+                    h3,
+                    .icon svg {
+                        color: $main-color
+                    }
+                }
+            }
+
+        }
+        
+        .conversation-body {
+            // @include container-padding-left;
+            padding-left: 24px;
+            min-height: calc(100% - 72px - 48px);
+            padding-top: 24px;
+            padding-right: 24px;
+            padding-bottom: 56px;
+            display: grid;
+            gap: 12px;
+            align-items: flex-end;
+            align-content: flex-end;
+
+            .message {
+                width: fit-content;
+                max-width: 100%;
+                
+                p {
+                    @include font(10px, 400, 26px);
+                    border-radius: 100px; 
+                    padding: 6px 16px;
+                    width: fit-content;
+                    background-color: $main-color;
+                    color: white;
+                    text-align: right
+                }
+                
+                .time {
+                    @include font-color(10px, 400, 16px, #BFBFBF);
+                }
+                
+                &.person-message {
+                    margin-right: auto;
+                    text-align: left;
+
+                    p {
+                        background-color: #ECECEC;
+                        color: $black-color;
+                    }
+                }
+            }
+        }
+
+        footer {
+            @include container-padding-left;
+            padding-right: 24px;
+            position: sticky;
+            bottom: 32px;
+            left: 0;
+            width: 100%;
+
+            .send-message {
+                @include flex(12px);
+    
+                button[type="submit"] {
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 50%;
+                    background-color: $main-color;
+                    transition: $main-transition;
+                    @include center;
+                    flex-shrink: 0;
+    
+                    svg {
+                        color: white; 
+                        font-size: 24px;
+                    }
+                }
+
+                input {
+                    border: none;
+                    border-radius: 100px;
+                    background-color: #ECECEC;
+                    padding: 12px 16px;
+                    @include font-color(12px, 400, 23px, $black-color);
+                }
+            }
+        }
+    }
+
+    // In case the chat is closed
+    &:not(.persons-open) {
+        .box {
+            grid-template-columns: 0 1fr;
+        }
+
+        .hide-chat {
+            transform: translateX(calc(-100% - 4px)) !important;
+
+            @media(max-width: 767px) {
+                top: 16px !important
+            }
+
+            @media(max-width: 767px) {
+                top: 13px !important
+            }
+
+            img {
+                transform: rotate(180deg);
+                box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1607843137) !important;
+            }
+        }
+
+        .search {
+            padding: 0
+        }
+    }
+}
+
+/*********************************************************************
+*********************** Style settings pages  ************************
+*********************************************************************/
+section.settings-form{
+    max-width: 400px;
+
+    &.return-policy {
+        max-width: 600px;
+    }
+
+    &.booking-conditions {
+        max-width: 500px;
+    }
+
+    &.booking-discounts {
+        max-width: 450px
+    }
+
+    .box-between {
+        @include flex(16px);
+        justify-content: space-between;
+        margin-bottom: 20px
+    }
+
+    .box-boolean {
+        @include flex(24px);
+
+        .checkbox-field:not(:last-child) {
+            margin-bottom: 0
+        }
+    }
+
+    .form-heading {
+        @include font-color(14px, 600, 26px, $black-color);
+        margin-bottom: 20px;
+    }
+
+    .form-description {
+        @include font-color(14px, 400, 26px, $text-color);
+        margin-bottom: 24px;
+    }
+
+    .policy-box {
+        display: flex;
+        gap: 8px;
+
+        &:not(:last-of-type) {
+            margin-bottom: 32px;
+
+            @media (max-width: 575px) {
+                margin-bottom: 16px;
+            }
+        }
+
+        label {
+            @include font-color(16px, 600, 23px, $black-color);
+            margin-bottom: 6px;
+            cursor: pointer;
+        }
+
+        p {
+            @include font-color(14px, 400, 26px, $text-color);
+        }
+    }
+
+    .checkbox-field {
+        @include flex(8px);
+        
+        &:not(:last-child) {
+            margin-bottom: 12px;
+        }
+
+        label {
+            flex-grow: 1;
+            cursor: pointer;
+            @include font-color(14px, 600, 26px, $black-color);
+
+            &.second-label {
+                @include font-color(12px, 600, 23px, $text-color);
+            }
+        }
+    }
+
+    .form-check-input {
+        &[type="checkbox"],
+        &[type="radio"] {
+            box-shadow: none;
+            width: 16px;
+            height: 16px;
+            border: none;
+            cursor: pointer;
+            background-color: #ECECEC;
+            flex-shrink: 0;
+            margin: 0;
+
+            &:checked {
+                background-color: $main-color;
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+            }
+        }
+    }
+
+    .input-field {
+
+        &:not(:last-child) {
+            margin-bottom: 16px;
+        }
+
+        label {
+            cursor: pointer;
+            @include font-color(12px, 400, 23px, $text-color);
+            margin-bottom: 2px
+        }
+
+        input:not([type="checkbox"]),
+        textarea {
+            @include font-color(14px, 600, 26px, $black-color);
+            border: 1px solid #D6D6D6;
+            border-radius: 8px;
+            padding: 14px 12px;
+            box-shadow: none;
+            direction: rtl;
+
+            &[type="number"] {
+                @include input-number;
+            }
+        }
+
+    }
+
+    .second-button {
+        max-width: 340px;
+        margin: 48px auto 24px;
+        position: sticky;
+        bottom: 10px;
+        left: 0;
+
+        @media (max-width: 575px) {
+            margin: 24px auto 16px;
+        }
+    }
+
+    .show-price {
+        padding: 15px;
+        width: 160px;
+        max-width: 100%;
+        background-color: $text-color;
+        transition: $main-transition;
+        border: none;
+        justify-content: center;
+
+        &:hover,
+        &.active {
+            background-color: $main-color;
+            color: white
+        }
+    }
+
+    .phone-number {
+        padding: 0 32px
+    }
+
+    .main-accordion {
+        .accordion-item {
+            margin-bottom: 24px;
+            padding: 0;
+            border-color: #D6D6D6;
+        }
+
+        .accordion-header {
+            border-bottom-color: #D6D6D6;
+            padding: 16px;
+            font-weight: 600;
+        }
+
+        .accordion-body {
+            padding: 0 16px;
+
+            .dropdown-item {
+                @include font-color(14px, 600, 26px, $black-color);
+                display: block;
+                padding: 16px 0;
+                transition: $main-transition;
+                cursor: pointer;
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid #D6D6D6;
+                }
+
+                &:hover {
+                    color: $text-color
+                }
+            }
+        }
+    }
+}
+
+#page-content.settings .popup-form {
+    .box {
+        max-width: 240px;
+        @include flex(16px);
+        justify-content: space-between;
+        margin-bottom: 16px;
+    }
+
+    .checkbox-field {
+        @include flex(12px);
+        
+
+        label {
+            cursor: pointer;
+            @include font-color(14px, 600, 26px, $black-color)
+        }
+
+        .form-check-input {
+            &[type="checkbox"],
+            &[type="radio"] {
+                box-shadow: none;
+                width: 16px;
+                height: 16px;
+                border: none;
+                cursor: pointer;
+                background-color: #ECECEC;
+                flex-shrink: 0;
+    
+                &:checked {
+                    background-color: $main-color;
+                    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+                }
+            }
+        }
+    }
+
+    .section-heading {
+        @include font-color(14px, 600, 26px, $black-color);
+        margin-bottom: 8px;
+    }
+
+    .second-button {
+        margin-top: 32px;
+    }
+}
+
+#page-content.settings #price_old_new {
+    .modal-body{
+        @include srcolling-section(auto)
+    }
+
+    .modal-dialog {
+        width: 450px;
+    }
+
+    .price-old-new {
+        li {
+            display: flex;
+            gap: 8px;
+
+            &:not(:last-child) {
+                margin-bottom: 20px
+            }
+
+            h4, p {
+                @include font-color(14px, 500, 26px, $text-color);
+                flex-grow: 1;
+            }
+
+            &.header h4,
+            &.header p {
+                font-weight: bold;
+                color: $black-color
+            }
+
+            h4 {
+                width: 50%;
+            }
+        }
+    }
+}
+
+/*************** Start style managers layout form *****************/
+#page-content.settings section.managers-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 32px;
+    margin-bottom: 24px;
+
+    @media(max-width: 1199px) {
+        grid-template-columns: 1fr 280px;
+        gap: 24px
+    }
+
+    @media(max-width: 991px) {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 32px
+    }
+
+    .settings-box {
+        @include dashboard-box;
+
+        .box-heading {
+            @include font-color(14px, 600, 23px, $black-color);
+            margin-bottom: 8px;
+
+            .order {
+                font-size: 12px;
+                line-height: 23px;
+                color: $text-color
+            }
+        }
+
+        .box-text {
+            @include font-color(14px, 500, 26px, $text-color);
+            margin-bottom: 12px;
+        }
+
+        .instructions {
+            @include font-color(12px, 500, 23px, $black-color);
+            margin-bottom: 4px
+        }
+
+        .text {
+            @include flex(4px);
+
+            &:not(:last-of-type) {
+                margin-bottom: 8px;
+            }
+
+            .heading {
+                @include font-color(12px, 500, 23px, $black-color);
+            }
+
+            .phone {
+                @include font-color(12px, 500, 23px, $main-color);
+            }
+
+            .status {
+                @include font(12px, 600, 23px);
+
+                &.off {color: $second-color;}
+                &.on{color: #136616}
+            }
+        }
+
+        .options {
+            @include flex(16px);
+            justify-content: center;
+            max-width: 335px;
+            margin: 16px auto 0;
+            
+            @media(max-width: 575px) {
+                gap: 12px
+            }
+
+            a {
+                @include font(12px, 500, 23px);
+                width: 100%;
+                max-width: 100%;
+                text-align: center;
+                padding: 7px 16px;
+                border-radius: 4px;
+                transition: $main-transition;
+
+                &.edit {
+                    background-color: #136616;
+                    color: white;
+
+                    &:hover {
+                        background-color: #136616b3
+                    }
+                }
+
+                &.remove {
+                    background-color: #ECECEC;
+                    color: $second-color;
+
+                    &:hover {
+                        background-color: #D6D6D6
+                    }
+                }
+            }
+        }
+    }
+}
+/*************** End style managers layout form *******************/
+
+/*************** Start style value-added-tax *****************/
+#page-content.settings section.value-added-tax {
+    max-width: 530px;
+    height: calc(100% - 70px);
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 575px) {
+        height: calc(100% - 60px);
+    }
+
+    .tax-alert {
+        @include font-color(14px, 500, 26px, $black-color);
+        padding: 12px 16px;
+        background-color: #ECECEC;
+        border-radius: 8px;
+        margin-bottom: 16px;
+    }
+
+    .second-button {
+        max-width: 340px;
+        margin: 0 auto;
+        margin-bottom: 12px;
+        @include flex(12px);
+        @include font(12px, 400, 23px);
+
+        svg {
+            font-size: 14px;
+        }
+    }
+
+    .border-button {
+        background-color: white;
+        color: $main-color;
+
+        &:hover {
+            background-color: $main-color;
+            color: white;
+        }
+    }
+
+    .add-tax-number {
+        margin-top: auto;
+    }
+}
+
+#page-content.settings #add_tax_number {
+    .modal-dialog {
+        width: 420px;
+    }
+
+    .checkbox-field {
+
+        &:not(:last-child) {
+            margin-bottom: 12px
+        }
+
+        label {
+            @include font-color(12px, 600, 23px, $text-color);
+        }
+    }
+}
+/*************** End style value-added-tax *******************/
+
+
+
+/*********************************************************************
+************************  my estates  pages  *************************
+*********************************************************************/
+
+#page-content.my-estate .slider-container-box {
+    overflow: hidden;
+
+    .box-container {
+        position: relative;
+        display: grid;
+    }
+
+    .box-slider {
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        position: relative;
+        top: 0;
+        left: 0;
+        transition: .4s;
+        
+        .slider-item {
+            width: 180px;
+            height: 160px;
+            position: relative;
+            z-index: 1;
+
+            .image img {
+                width: 100%;
+                height: 110px;
+                object-fit: cover;
+                border-radius: 12px
+            }
+
+            .title {
+                @include font-color(12px, 600, 23px, $black-color);
+                margin: 4px 0 2px
+            }
+
+            .status {
+                @include font-color(9px, 500, 17px, $main-color);
+            }
+        }
+    }
+    
+    .next,
+    .prev {
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        color: $main-color;
+        width: 150px;
+        height: 100%;
+        font-size: 18px;
+        transition: .4s;
+        padding: 4px;
+        display: flex;
+        align-items: center;
+
+        @media(max-width: 767px) {
+            width: 50px;
+        }
+
+        .icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            @include center;
+            background-color: $main-color;
+            transition: $main-transition;
+
+            svg {
+                font-size: 14px;
+                color: white
+            }
+        }
+    }
+
+    .next:hover .icon,
+    .prev:hover .icon{
+        opacity: .8;
+        scale: 1.1;
+    }
+
+    .prev {
+        background: linear-gradient(271deg, #FFFFFF 0%, #FFFFFF00 100%) 0% 0% no-repeat padding-box;;
+        right: 0;
+        justify-content: flex-start;
+    }
+
+    .next {
+        background: linear-gradient(89deg, #FFFFFF 0%, #FFFFFF00 100%) 0% 0% no-repeat padding-box;
+        left: 0;
+        justify-content: flex-end;
+    }
+}
+
+/*************** Start style estate pending *****************/
+#page-content.my-estate section.estate-pending {
+    padding-bottom: 24px;
+    margin-bottom: 2px;
+    position: sticky;
+    background-color: white;
+    top: 65px;
+    left: 0;
+    z-index: 10;
+
+    @media(max-width: 575px) {
+        padding-bottom: 16px;
+        top: 55px
+    }
+
+    h2 {
+        @include font-color(14px, 500, 26px, $black-color);
+        margin-bottom: 8px;
+    }
+}
+/*************** End style estate pnding *******************/
+
+
+/*************** Start style my estates layout form *****************/
+#page-content.my-estate section.my-estates-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 32px;
+    margin-bottom: 24px;
+
+    @media(max-width: 1199px) {
+        grid-template-columns: 1fr 280px;
+        gap: 24px
+    }
+
+    @media(max-width: 991px) {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 32px
+    }
+
+    .special-aside {
+        top: calc(65px + 220px)
+    }
+}
+
+#page-content.my-estate .my-complex-estate {
+    @include dashboard-box;
+
+    .heading {
+        @include font-color(16px, 600, 30px, $black-color);
+        margin-bottom: 16px;
+    }
+
+    .estate {
+        padding-bottom: 12px;
+        
+        &:not(:last-of-type) {
+            border-bottom: 1px solid #D6D6D6;
+            margin-bottom: 12px;
+        }
+        
+        > a {
+            @include flex(16px);
+            justify-content: space-between;
+
+            &:hover .content h3,
+            &:hover .icon svg {
+                color: $main-color;
+            }
+        }
+
+        .content {
+            @include flex(12px);
+
+            .image img {
+                width: 90px;
+                max-width: 1005;
+                height: 72px;
+                object-fit: cover;
+                border-radius: 8px;
+            }
+
+            h3 {
+                @include font-color(14px, 600, 26px, $text-color);
+                transition: $main-transition;
+            }
+        }
+
+        .icon svg {
+            font-size: 14px;
+            transition: $main-transition;
+            color: $text-color;
+        }
+    }
+}
+
+#page-content.my-estate #add_real_estate {
+    
+    .modal-dialog {
+        width: 370px;
+    }
+
+    .options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+
+        .add-estate-button {
+            @include font-color(14px, 600, 26px, $black-color);
+            border: 1px solid #D6D6D6;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+            display: grid;
+            gap: 8px;
+            transition: $main-transition;
+
+            &:hover {
+                border-color: $main-color;
+                color: $main-color
+            }
+
+            svg {
+                font-size: 28px;
+                color: $text-color;
+                margin: auto;
+            }
+
+        }
+    }
+}
+/*************** End style my estates layout form *******************/
+
+/*************** Start style copy estate *****************/
+#page-content.my-estate .copy-estate {
+    margin-bottom: 24px;
+    max-width: 530px;
+
+    h2 {
+        @include font-color(14px, 400, 26px, $text-color);
+        margin-bottom: 16px;
+    }
+}
+/*************** End style copy estate *******************/
+
+
+
+/*********************************************************************
+************************  discount layout  pages  *************************
+*********************************************************************/
+
+/*************** Start style managers layout form *****************/
+#page-content.discount section.discount-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 24px;
+    margin-bottom: 24px;
+
+    @media(max-width: 1199px) {
+        display: flex; 
+        flex-direction: column-reverse;
+        gap: 32px
+    }
+
+    .settings-box {
+        @include dashboard-box;
+
+        .box {
+            display: flex;
+            gap: 8px;
+            align-items: flex-start
+        }
+
+        .box-between {
+            @include flex(16px);
+            justify-content: space-between;
+            margin-top: 16px;
+
+            @media (max-width: 575px) {
+                flex-direction: column;
+                gap: 8px
+            }
+        }
+
+        header {
+            display: flex;
+            gap: 16px;
+            justify-content: space-between;
+
+            .form-switch {
+                padding: 0;
+                padding-left: 56px;
+
+                input {
+                    float: left;
+                    height: 24px;
+                    width: 46px;
+                    margin-left: -56px;
+                    cursor: pointer;
+                    box-shadow: none;
+                    border: 2px solid $text-color;
+                    background-color: $text-color;
+                    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+                    background-position: left center;
+
+                    &:checked {
+                        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+                        background-position: right center;
+                        background-color: var(--main-color);
+                    }
+                }
+            }
+        }
+
+        .box-heading {
+            flex-shrink: 0;
+            @include font-color(14px, 600, 26px, $black-color);
+            margin-bottom: 4px;
+            @include flex(4px);
+
+            .label {
+                font-size: 12px;
+                line-height: 23px;
+                color: $text-color
+            }
+        }
+
+        .box-text {
+            @include font-color(14px, 500, 26px, $text-color);
+            margin-bottom: 2px;
+        }
+
+        .options {
+            @include flex(16px);
+            
+            @media(max-width: 575px) {
+                gap: 12px
+            }
+
+            a {
+                @include font(12px, 500, 23px);
+                width: 110px;
+                max-width: 100%;
+                text-align: center;
+                padding: 7px 16px;
+                border-radius: 4px;
+                transition: $main-transition;
+
+                &.edit {
+                    background-color: #136616;
+                    color: white;
+
+                    &:hover {
+                        background-color: #136616b3
+                    }
+                }
+
+                &.remove {
+                    background-color: #ECECEC;
+                    color: $second-color;
+
+                    &:hover {
+                        background-color: #D6D6D6
+                    }
+                }
+            }
+        }
+    }
+}
+/*************** End style managers layout form *******************/

@@ -1,0 +1,529 @@
+// import global style from style.css
+@use "style";
+
+// import varibles & mixins
+@use "includes/varibles.scss" as *;
+@use "includes/mixins" as *;
+
+
+/*********************************************************************
+************************** Style home page  **************************
+*********************************************************************/
+
+// #header {
+//     position: unset;
+    
+//     &.sticky-header {
+//         position: fixed;
+//         top: 0;
+//         left: 0;
+//         width: 100%;
+//     }
+// }
+
+#content.home {
+    padding-bottom: $main-space;
+
+    @media(max-width: 991px) {
+        padding-bottom: 40px;
+    }
+}
+
+/*********************** Start style Header **************************/
+
+#content.home .home-header {
+    height: calc(100vh - 82px - 75px);
+    min-height: 450px;
+    max-height: 950px;
+
+    @media(max-width: 767px) {
+        min-height: 600px;
+    }
+
+    .container-lg  {
+        height: 100%;
+        background-image: url(../../images/home-header-background.webp);
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 24px;
+        position: relative;
+
+        &::before {
+            content: "";
+            @include overlay(#10101040);
+            border-radius: 24px;
+        }
+    }
+
+    .box {
+        height: 100%;
+        @include center;
+        flex-direction: column;
+        position: relative;
+        z-index: 1;
+    }
+
+    h1 {
+        @include font-color(36px, 600, 68px, white);
+        margin-bottom: 56px;
+        text-align: center;
+
+        @media(max-width: 575px) {
+            font-size: 26px;
+            line-height: 44px;
+            margin-bottom: 32px;
+        }
+    }
+
+    form {
+        width: 750px;
+        max-width: 100%;
+        border: 1px solid #707070;
+        border-radius: 16px;
+        background-color: white;
+        padding: 16px 32px;
+
+        @media(max-width: 575px) {
+            padding: 16px;
+        }
+
+        header {
+            @include flex(32px);
+            justify-content: space-between;
+            margin-bottom: 10px;
+
+            @media(max-width: 575px) {
+                gap: 16px
+            }
+
+            ul.options {
+                @include flex(24px);
+                @include font(16px, 500, 30px);
+
+                @media(max-width: 575px) {
+                    gap: 12px
+                }
+
+                span {
+                    color: $main-color;
+                    border-bottom: 2px solid;
+                    padding: 0 5px;
+                }
+
+                a {
+                    color: $text-color;
+                    transition: $main-transition;
+
+                    &:hover {
+                        color: $main-color
+                    }
+                }
+            }
+
+            button[type="reset"] {
+                @include font(14px, 400, 26px);
+                color: $text-color;
+                transition: $main-transition;
+                text-decoration: underline;
+
+                &:hover {
+                    color: $main-color;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        article.inputs {
+            display: grid;
+            grid-template-columns: repeat(3, calc((100% - 24px) / 3));
+            gap: 12px;
+
+            @media(max-width: 767px) {
+                grid-template-columns: repeat(2, calc((100% - 12px) / 2));
+            }
+
+            .input-button {
+                width: 100%;
+                background-color: #ECECEC;
+                border-radius: 8px;
+                padding: 12px;
+                @include flex(12px);
+                justify-content: space-between;
+                @include font-color(14px, 400, 26px, $black-color);
+
+                @media(max-width: 575px) {
+                    font-size: 12px;
+                    gap: 8px;
+                }
+
+                svg {
+                    font-size: 12px;
+                    color: $text-color;
+                }
+
+                &.city {
+                    justify-content: flex-start;
+
+                    svg {
+                        color: $black-color;
+                        font-size: 18px;
+                    }
+                }
+            }
+
+            button[type="submit"] {
+                width: 100%;
+                background-color: $main-color;
+                border-radius: 8px;
+                padding: 12px;
+                text-align: center;
+                @include font-color(14px, 400, 26px, white);
+                transition: $main-transition;
+
+                &:hover {
+                    background-color: $black-color;
+                }
+            }
+        }
+    }
+}
+
+/*********************** End style Header ***************************/
+
+
+/*********************** Start style categories **************************/
+
+#content.home section.categories {
+    position: relative;
+    margin-top: -45px;
+
+    @media(max-width: 575px) {
+        margin-top: -30px;
+    }
+
+    .box {
+        max-width: 650px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(4, calc((100% - 48px) / 4));
+        gap: 16px;
+
+        @media(max-width: 575px) {
+            grid-template-columns: repeat(4, calc((100% - 36px) / 4));
+            gap: 12px;
+        }
+    }
+
+    .category {
+        cursor: pointer;
+
+        img {
+            max-width: 100%;
+            width: 150px;
+            max-height: 84px;
+            aspect-ratio: 1.7;
+            object-fit: cover;
+            border-radius: 8px;
+
+            @media(max-width: 575px) {
+                aspect-ratio: auto;
+                height: 60px;
+            }
+        }
+
+        h3 {
+            @include font-color(14px, 600, 26px, $black-color);
+            margin-top: 4px;
+            text-align: center;
+
+            @media(max-width: 575px) {
+                font-size: 11px;
+                line-height: 19px;
+            }
+        }
+    }
+
+    + .main-popup {
+
+        .modal-content {
+            padding: 24px 12px 2px;
+        }
+
+        .city-search {
+            background-color: #ECECEC;
+            border-radius: 100px;
+            padding: 9px 16px;
+            @include flex(6px);
+            margin-bottom: 24px;
+
+            svg {
+                font-size: 18px;
+                color: $black-color
+            }
+
+            input {
+                @include font-color(12px, 400, 23px, $black-color);
+                caret-color: $main-color;
+                display: block;
+                width: 100%;
+                flex: 1 1;
+                border: none;
+                outline: none;
+                background: transparent;
+            }
+        }
+
+        .cities {
+            @include srcolling-section(285px);
+
+            .city-item {
+                @include flex(18px);
+                margin-bottom: 16px;
+
+                .icon {
+                    @include center;
+                    width: 32px;
+                    height: 32px;
+                    background-color: #ECECEC;
+                    border-radius: 50%;
+
+                    svg {
+                        font-size: 16px;
+                        color: $text-color
+                    }
+                }
+
+                h4 {
+                    @include font-color(14px, 600, 26px, $black-color);
+                }
+            }
+        }
+    }
+}
+
+/*********************** End style categories ***************************/
+
+
+/*********************** Start style what-golen **************************/
+
+#content.home section.what-golen {
+    margin: 64px 0 90px;
+
+    @media(max-width: 991px) {
+        margin: 48px 0 64px;
+    }
+
+    @media(max-width: 575px) {
+        margin: 32px 0 48px;
+    }
+
+    .box {
+        display: grid;
+        grid-template-columns: 50% calc(50% - 100px);
+        gap: 100px;
+
+        @media(max-width: 1199px) {
+            grid-template-columns: 50% calc(50% - 48px);
+            gap: 48px;
+        }
+
+        @media(max-width: 991px) {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 32px;
+        }
+
+        @media(max-width: 575px) {
+            gap: 24px
+        }
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, calc((100% - 96px) / 3));
+            gap: 48px;
+            margin: 32px 0 40px;
+            text-align: center;
+
+            @media(max-width: 575px) {
+                grid-template-columns: repeat(3, calc((100% - 32px) / 3));
+                gap: 16px;
+                margin: 24px 0 30px;
+            }
+    
+            img {
+                width: 48px;
+                height: 48px;
+                max-width: 100%;
+            }
+    
+            h3 {
+                @include font-color(14px, 500, 24px, $black-color);
+                margin-top: 8px;
+            }
+        }
+    
+        .add-real-estate {
+            margin: 24px auto 0;
+            width: 340px;
+            max-width: 100%;
+            background-color: $main-color;
+            border: 2px solid $main-color;
+            padding: 10px;
+            @include flex(8px);
+            justify-content: center;
+            @include font-color(16px, 500, 30px, white);
+            border-radius: 8px;
+            transition: $main-transition;
+
+            &:hover {
+                background-color: transparent;
+                color: $main-color
+            }
+        }
+    }
+
+    .image {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        @media(max-width: 991px) {
+            flex-direction: row;
+        }
+
+        img {
+            width: 100%;
+
+            @media(max-width: 991px) {
+                max-width: 420px;
+            }
+        }
+    } 
+}
+
+/*********************** End style what-golen ***************************/
+
+
+/*********************** Start style Booster **************************/
+
+#content.home section.booster {
+    .box {
+        @media(max-width: 575px) {
+            flex-direction: column;
+        }
+    }
+
+    .booster-buttons {
+        @include flex(12px);
+        margin-bottom: 24px;
+
+        @media (min-width: 576px) and (max-width: 767px) {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        a {
+            width: 200px;
+            max-width: 100%;
+            border-radius: 100px;
+            border: 2px solid white;
+            padding: 12px;
+            @include flex(12px);
+            justify-content: center;
+            @include font-color(19px, 500, 36px, white);
+            transition: $main-transition;
+
+            @media(max-width: 991px) {
+                width: 180px;
+            }
+
+            @media(max-width: 575px) {
+                width: 125px;
+                font-size: 16px;
+                padding: 8px;
+                gap: 6px;
+            }
+
+            &:hover {
+                background-color: white;
+                color: $main-color;
+            }
+
+            svg {
+                font-size: 32px;
+
+                @media(max-width: 575px) {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+
+    button.qr-code {
+        width: fit-content;
+        margin: auto;
+        @include flex(16px);
+        justify-content: center;
+        @include font-color(17px, 400, 60px, white);
+        cursor: pointer;
+        
+        svg {
+            font-size: 24px;
+        }
+        
+        span {
+            text-decoration: underline;
+
+        }
+        
+        &:hover span {
+            text-decoration: none;
+        }
+    }
+
+    .image img {
+        @media (max-width: 767px) {
+            margin-top: 0;
+        }
+    }
+
+    .main-popup {
+
+        .modal-dialog  {
+            width: 410px;
+        }
+
+        .modal-content {
+            border-radius: 16px;
+            padding: 40px 32px;
+
+            @media(max-width: 575px) {
+                padding: 32px 24px;
+            }
+        }
+
+        .modal-header .modal-title {
+            @include font-color(26px, 600, 49px, $black-color);
+            text-align: center;
+
+            @media(max-width: 575px) {
+                font-size: 21px;
+                line-height: 40px;
+            }
+        }
+
+        .modal-body {
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+/*********************** End style Booster ***************************/

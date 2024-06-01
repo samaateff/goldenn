@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="central_air_conditioner_mob" transform="translate(-900 -1275)">
+    <g id="Rectangle_13442" data-name="Rectangle 13442" transform="translate(900 1275)" fill="#737373" stroke="#707070" stroke-width="1" opacity="0">
+      <rect width="20" height="20" stroke="none"/>
+      <rect x="0.5" y="0.5" width="19" height="19" fill="none"/>
+    </g>
+    <g id="Rectangle_22837" data-name="Rectangle 22837" transform="translate(902 1277)" fill="#737373" stroke="#707070" stroke-width="1" opacity="0">
+      <rect width="16" height="16" stroke="none"/>
+      <rect x="0.5" y="0.5" width="15" height="15" fill="none"/>
+    </g>
+    <g id="air-conditioner" transform="translate(902 1179.52)">
+      <path id="Subtraction_21" data-name="Subtraction 21" d="M1.913,7.249H1.124A1.126,1.126,0,0,1,0,6.125v-5A1.126,1.126,0,0,1,1.124,0H14.873A1.126,1.126,0,0,1,16,1.124v5a1.126,1.126,0,0,1-1.124,1.124h-.789a.234.234,0,0,0,.227-.235V5.249a.235.235,0,0,0-.235-.235H1.922a.235.235,0,0,0-.235.235V7.014a.234.234,0,0,0,.227.235ZM13.381,1.44a.235.235,0,1,0,0,.47h.694a.235.235,0,1,0,0-.47Zm-5.516,0a.235.235,0,1,0,0,.47H12.31a.235.235,0,1,0,0-.47Z" transform="translate(0 100.48)" fill="#737373"/>
+      <path id="Path_30711" data-name="Path 30711" d="M53.868,297.5v.845a.235.235,0,0,0,.235.235H66.257a.235.235,0,0,0,.235-.235V297.5Z" transform="translate(-52.181 -190.473)" fill="#737373"/>
+      <rect id="Rectangle_13443" data-name="Rectangle 13443" width="12.624" height="0.47" transform="translate(1.687 106.555)" fill="#737373"/>
+      <g id="Group_25095" data-name="Group 25095" transform="translate(3.425 108.358)">
+        <path id="Path_30714" data-name="Path 30714" d="M109.614,353.891a.235.235,0,0,1-.136-.426,1.551,1.551,0,0,0,.659-1.166.235.235,0,1,1,.47,0,2.02,2.02,0,0,1-.857,1.549A.234.234,0,0,1,109.614,353.891Z" transform="translate(-109.379 -352.064)" fill="#737373"/>
+        <path id="Path_30715" data-name="Path 30715" d="M187.518,353.891a.235.235,0,0,1-.235-.235V352.3a.235.235,0,0,1,.47,0v1.358A.235.235,0,0,1,187.518,353.891Z" transform="translate(-184.844 -352.064)" fill="#737373"/>
+        <path id="Path_30716" data-name="Path 30716" d="M250.3,353.891a.235.235,0,0,1-.235-.235V352.3a.235.235,0,1,1,.47,0v1.358A.235.235,0,0,1,250.3,353.891Z" transform="translate(-245.659 -352.064)" fill="#737373"/>
+        <path id="Path_30717" data-name="Path 30717" d="M363.319,353.89a.234.234,0,0,1-.136-.043,2.02,2.02,0,0,1-.857-1.549.235.235,0,0,1,.47,0,1.546,1.546,0,0,0,.659,1.167.235.235,0,0,1-.136.426ZM362.8,352.3h0Z" transform="translate(-354.407 -352.063)" fill="#737373"/>
+        <path id="Path_30718" data-name="Path 30718" d="M308.861,353.891a.235.235,0,0,1-.235-.235V352.3a.235.235,0,1,1,.47,0v1.358A.235.235,0,0,1,308.861,353.891Z" transform="translate(-302.387 -352.064)" fill="#737373"/>
+      </g>
+    </g>
+  </g>
+</svg>

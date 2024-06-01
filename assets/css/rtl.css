@@ -1,0 +1,412 @@
+/*********************************************************************
+************************** Style to Golden ***************************
+*********************************************************************/
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../fonts/Ubuntu-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../fonts/Ubuntu-Medium.ttf") format("truetype");
+  font-weight: Medium;
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../fonts/Ubuntu-Bold.ttf") format("truetype");
+  font-weight: Bold;
+}
+
+body {
+  font-family: "Ubuntu", sans-serif;
+}
+
+
+input, select, textarea {
+    direction: ltr !important;
+}
+
+.main-button {
+    padding: 7px 16px;
+    white-space: nowrap;
+}
+
+.second-button {
+    padding: 12px 16px;
+}
+
+.back-home  svg {
+    transform: rotate(180deg);
+}
+
+.breadcrumbs .breadcrumb .breadcrumb-item::before {
+    transform: rotate(180deg);
+    padding: 0 6px;
+}
+
+.main-dropdown .dropdown-menu .dropdown-item svg,
+#header .navbar .notification .dropdown-menu header .veiw-all svg,
+#header .navbar .message .dropdown-menu header .veiw-all svg, 
+.main-dropdown .dropdown-menu .dropdown-item svg,
+#content.real-estate-page section.real-estate-reviews header .reviews-control .next svg,
+#content.real-estate-page section.real-estate-reviews header .reviews-control .prev svg,
+section.user-chat .open-conversation .conversation-header .real-estate-chat .icon svg,
+section.user-chat .persons-conversation .hide-chat img,
+#page-content.account-summary .account-sales .info .performance-report .arrow svg,
+#page-content.account-summary .account-sales .info .upcoming-guests .arrow svg,
+.special-aside form .dropdown .input-button svg,
+#content.add-real-estate section.add-estate-section .real-estate-info form.add-estate-info .select-button svg,
+#content.my-booking section.my-booking .accordion .content .booking-section footer .details svg,
+header.second-menu .main-menu-toggle svg,
+section.user-chat .persons-conversation .main-menu-toggle svg,
+#page-content.calender .calender-layout .special-aside .back-aside svg {
+    transform: rotate(180deg);
+}
+
+section.user-chat:not(.persons-open) .hide-chat img {
+    transform: rotate(0deg);
+}
+
+/*********************** Start style Header *************************/
+#header .navbar .offcanvas-lg {
+    gap: 48px
+}
+
+#header .navbar ul.languges li:first-child::after {
+    right: -9px;
+    left: auto;
+}
+@media (max-width: 1199px) {
+    #header .navbar .offcanvas-lg {
+        gap: 24px
+    }
+    
+    #header .navbar .navbar-nav .nav-link {
+        font-size: 13px;
+    }
+}
+
+#header .navbar .main-dropdown .dropdown-menu,
+#header .navbar .notification .dropdown-menu,
+#header .navbar .message .dropdown-menu {
+    left: auto;
+    right: 0;
+}
+
+@media (max-width: 991px) {
+    #header .navbar .offcanvas-lg {
+        right: 0;
+    }
+}
+
+#header .navbar article.d-flex.d-lg-none.gap-16.align-items-center {
+    margin-right: 0;
+    margin-left: auto;
+}
+/*********************** End style Header ***************************/
+
+/*********************** Start style real-estate *************************/
+section.real-estate .image-slider .carousel-inner .carousel-item,
+#content.real-estate-page section.real-estate-gallery .image-slider .carousel-inner .carousel-item {
+    margin-right: -100%;
+}
+
+section.real-estate .image-slider .carousel-control-next,
+#content.real-estate-page section.real-estate-gallery .image-slider .carousel-control-next,
+#content.home .slider-header .image-slider .carousel-control-next {
+    right: 0
+}
+
+section.real-estate .image-slider .carousel-control-next img, 
+section.real-estate .image-slider .carousel-control-prev img,
+#content.real-estate-page section.real-estate-gallery .image-slider .carousel-control-prev img,
+#content.real-estate-page section.real-estate-gallery .image-slider .carousel-control-next img,
+#content.home .slider-header .image-slider .carousel-control-next img,
+#content.home .slider-header .image-slider .carousel-control-prev img{
+    transform: rotate(180deg);
+}
+
+section.real-estate .content .absolute-badges .favorite-icon {
+    left: auto;
+    right: 16px;
+}
+
+#content.real-estate-page section.real-estate-info .content .absolute-box {
+    left: auto;
+    right: 16px;
+}
+
+@media (max-width: 575px) {
+    #content.real-estate-page section.real-estate-reviews header .all-reviews .main-button {
+        right: 16px;
+        left: auto;
+    }
+}
+
+/*********************** End style real-estate ***************************/
+
+/*********************** Start style map *************************/
+#content.map section.search-map .menu .menu-container {
+  padding-left: calc((100vw - 1320px + 16px) / 2);
+   padding-right: 16px
+}
+@media (max-width: 1399px) {
+  #content.map section.search-map .menu .menu-container {
+    padding-left: calc((100vw - 1140px + 16px) / 2);
+    padding-right: 16px
+  }
+}
+@media (max-width: 1199px) {
+  #content.map section.search-map .menu .menu-container {
+    padding-left: calc((100vw - 960px + 16px) / 2);
+    padding-right: 16px
+  }
+}
+@media (max-width: 991px) {
+  #content.map section.search-map .menu .menu-container {
+    padding-left: 16px;
+  }
+}
+
+#content.map section.search-map .menu .favorite-icon {
+    left: 144px;
+    right: auto;
+}
+
+@media (max-width: 767px) {
+    #content.map section.search-map .menu .favorite-icon {
+        left: 120px;
+        right: auto;
+    }
+}
+#content.map section.search-map .menu .offer {
+    left: 12px;
+     right: auto;
+}
+
+@media (max-width: 767px) {
+    #content.map section.search-map .menu .offer {
+        left: 8px;
+         right: auto;
+    }
+}
+/*********************** End style map ***************************/
+
+/*********************** Start style be-host *************************/
+#content.be-host section.page-heading h1.title {
+    text-align: center;
+    line-height: 70px;
+    font-size: 40px;
+}
+
+@media (max-width: 767px) {
+    #content.be-host section.page-heading h1.title {
+        line-height: 40px;
+    }
+}
+
+.inquiry-search form {
+    flex-direction: row-reverse;
+}
+
+#content.be-host section.income-calculator .step {
+    width: 250px;
+}
+#content.be-host section.income-calculator .step .step-heading {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 32px;
+}
+/*********************** End style be-host*************************/
+
+/*********************** start stylemy-booking *************************/
+#content.my-booking section.my-booking .accordion {
+    max-width: 750px;
+}
+/*********************** End style my-booking *************************/
+
+/*********************** Start style messages *************************/
+section.user-chat .open-conversation footer .send-message {
+        flex-direction: row-reverse;
+}
+
+section.user-chat .persons-conversation .hide-chat {
+    left: auto;
+    right: 0;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(50%);
+}
+
+section.user-chat:not(.persons-open) .hide-chat {
+    transform: translateX(calc(100% + 4px)) !important;
+}
+
+section.user-chat .open-conversation .conversation-body {
+  padding-right: calc((100vw - 1320px + 16px) / 2);
+  padding-left: 24px;
+}
+@media (max-width: 1399px) {
+  section.user-chat .open-conversation .conversation-body {
+    padding-right: calc((100vw - 1140px + 16px) / 2);
+    padding-left: 24px;
+  }
+}
+@media (max-width: 1199px) {
+  section.user-chat .open-conversation .conversation-body {
+    padding-right: calc((100vw - 960px + 16px) / 2);
+    padding-left: 24px;
+  }
+}
+@media (max-width: 991px) {
+  section.user-chat .open-conversation .conversation-body {
+    padding-right: 16px;
+    padding-left: 24px;
+  }
+}
+
+section.user-chat .open-conversation .conversation-header {
+  padding-left: 64px;
+  padding-right: calc((100vw - 1320px + 16px) / 2);
+}
+@media (max-width: 1399px) {
+  section.user-chat .open-conversation .conversation-header {
+    padding-right: calc((100vw - 1140px + 16px) / 2);
+  }
+}
+@media (max-width: 1199px) {
+  section.user-chat .open-conversation .conversation-header {
+    padding-right: calc((100vw - 960px + 16px) / 2);
+  }
+}
+@media (max-width: 991px) {
+  section.user-chat .open-conversation .conversation-header {
+    padding-right: 16px;
+  }
+}
+@media (max-width: 991px) {
+  section.user-chat .open-conversation .conversation-header {
+    padding-left: 48px;
+  }
+}
+
+section.user-chat .open-conversation footer {
+  padding-right: calc((100vw - 1320px + 16px) / 2);
+  padding-left: 24px;
+}
+@media (max-width: 1399px) {
+  section.user-chat .open-conversation footer {
+    padding-right: calc((100vw - 1140px + 16px) / 2);
+    padding-left: 24px;
+  }
+}
+@media (max-width: 1199px) {
+  section.user-chat .open-conversation footer {
+    padding-right: calc((100vw - 960px + 16px) / 2);
+    padding-left: 24px;
+  }
+}
+@media (max-width: 991px) {
+  section.user-chat .open-conversation footer {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+/*********************** End style messages *************************/
+
+/*********************** Start style dashboard *************************/
+
+#layout-box {
+    grid-template-columns: 250px 1fr;
+}
+@media (max-width: 767px) {
+    
+    #layout-box {
+        -ms-grid-columns: 0 1fr;
+        grid-template-columns: 0 1fr;
+    }
+}
+.dashboard-menu ul.main-menu {
+    padding: 36px 12px 12px 0;
+}
+
+#page-content {
+    padding: 32px 0 0 24px;
+}
+@media (max-width: 767px) {
+    #page-content {
+        padding: 24px 0 0 0;
+    }
+}
+
+.dashboard-menu {
+    -webkit-box-shadow: 3px 2px 3px rgba(0, 0, 0, 0.1607843137);
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1607843137)
+}
+
+.dashboard-menu ul.main-menu .menu-link .badge {
+    margin-right: 0;
+    margin-left: auto;
+}
+
+#page-content.account-summary section.brief-summary .info {
+    padding: 24px 8px;
+}
+
+#page-content.account-summary .account-sales .info .my-points .points {
+    font-size: 21px;
+    line-height: 40px;
+}
+
+#page-content.account-summary section.brief-summary .info h3 {
+    line-height: 23px;
+}
+
+#page-content.calender .calender-layout .special-aside {
+    left: auto;
+    right: 0;
+}
+
+#page-content.calender .calender-layout .special-aside .close-aside, 
+#page-content.calender .calender-layout .special-aside .back-aside {
+    left: auto;
+    right: 16px;
+}
+
+@media (max-width: 991px) {
+    #page-content.calender .calender-layout .special-aside .close-aside, 
+    #page-content.calender .calender-layout .special-aside .back-aside {
+        left: auto;
+        right: 20px;
+    }
+}
+/*********************** End style dashboard *************************/
+
+/*********************** Start style daterangepicker *************************/
+.daterangepicker {
+    direction: ltr !important;
+}
+
+.daterangepicker td.start-date {
+    border-radius: 50% 0 0 50% !important;
+}
+
+.daterangepicker td.end-date {
+    border-radius: 0 50% 50% 0 !important;
+}
+.daterangepicker td.start-date.end-date {
+    border-radius: 50% !important;
+}
+.daterangepicker .calendar-table .next, .daterangepicker .calendar-table .prev {
+    transform: rotate(180deg);
+}
+
+@media (min-width: 564px) {
+.daterangepicker .ranges, .daterangepicker .drp-calendar {
+    float: left !important;
+}
+    
+.drp-calendar.right {
+    float: right !important;
+}
+}
+/*********************** Start style daterangepicker *************************/
